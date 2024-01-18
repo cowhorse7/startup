@@ -6,7 +6,7 @@ A general idea of what this project will hopefully look like
 ### Elevator Pitch
 Are you struggling to decide what you want your wedding bouquet to look like, but you don’t want to go to a florist yet? Need floral inspiration for some other reason? The Bouquet app is here to help you visualize your arrangements. Find your flowers and greens and add them to the stickerboard. Move stickers around the board until you find just what you are looking for! Save an arrangement on your account to remember what plants you used. Connect with friends and chat about your ideas.
 ### Design
-![first draft](img.png)
+![initial draft](img.png)
 ### Key Features
 + Secure login over HTTPS
 + Friends list
