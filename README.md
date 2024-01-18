@@ -21,10 +21,10 @@ Are you struggling to decide what you want your wedding bouquet to look like, bu
 + CSS - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
 + JavaScript - Provides login, choice display, chatbox display, stickerboard display.
 + Service - Backend service with endpoints for:
-+ + login
-+ + retrieving choices
-+ + displaying flowers
-+ + recalling saved arrangements
+  + login
+  + retrieving choices
+  + displaying flowers
+  + recalling saved arrangements
 + DB/Login - Store users and friends in database. Register and login users. Credentials securely stored in database.
 + WebSocket - Live chat with users on friends list
 + React - Application ported to use the React web framework.
