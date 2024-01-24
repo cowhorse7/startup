@@ -8,3 +8,7 @@ command to remote shell:
 ssh -i "C:\Users\becca\OneDrive\Documents\School\CS 260\EquineFloral22.pem" ubuntu@184.73.198.144
 Note also that I am unsure whether my computer actually has ubuntu at all. Not sure if I want to subscribe, either. 
 -The class instruction mentioned nothing about it, which could either mean I don't need it, or they expect everyone to already have it.
+
+http = hypertext transport protocol (non-secure)
+https = secure version
+when using non-secure connections, anyone with access to the network traffic can capture all data sent in either direction (bad)
