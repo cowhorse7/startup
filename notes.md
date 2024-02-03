@@ -5,7 +5,7 @@ The term fork in the context of GitHub basically means copy
 my aws ip addy
 http://184.73.198.144/
 command to remote shell:
-ssh -i "C:\Users\becca\OneDrive\Documents\School\CS 260\EquineFloral22.pem" ubuntu@260dreams.click
+ssh -i "C:\Users\becca\OneDrive\Documents\School\CS260\EquineFloral22.pem" ubuntu@260dreams.click
 Note also that I am unsure whether my computer actually has ubuntu at all. Not sure if I want to subscribe, either. 
 -The class instruction mentioned nothing about it, which could either mean I don't need it, or they expect everyone to already have it.
 
@@ -27,3 +27,11 @@ A hyperlink in HTML is represented with an anchor (a) element that has an attrib
 A hyperlink to BYU's home page looks like this: <a href="https://byu.edu">Go to the Y</a>
 
 Since we now have JavaScript to supplement our htmls, we don't need to include a "form" element, though we can
+
+Cascading Style Sheets (CSS)
+CSS converts structure and content of html to a vibrant, responsive experience
+concerned with defining rulesets or rules
+rule is comprised of a Selector that selects elements to apply the rule to and Declarations that represent the Property to style  w the property value
+the style element should appear in the Head element of the doc
+elements inherit the rules applied to their parents
+CSS defines everything as boxes
