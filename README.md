@@ -15,6 +15,7 @@ Are you struggling to decide what you want your wedding bouquet to look like, bu
 + Ability to save arrangements
 + List of saved arrangements
 + List of community arrangements
++ (changed friendslist and chatbox in favor of the list of community arrangements)
 ### Technologies
 + HTML - Uses correct HTML structure for application. Four HTML pages. One for login, one for arranging, one for saved arrangements, and one for the about page.
 + CSS - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
