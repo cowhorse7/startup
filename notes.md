@@ -35,3 +35,8 @@ rule is comprised of a Selector that selects elements to apply the rule to and D
 the style element should appear in the Head element of the doc
 elements inherit the rules applied to their parents
 CSS defines everything as boxes
+<div>s are automatically defined as boxes in html, too. Can of course be changed from CSS
+CSS flex display (display: flex) is useful when you want your content to react to the window size/orientation.
+
+Bootstrap CSS package is good to use for when JS is needed. Bootstrap is very common to use
+to  include Bootstrap in your application using NPM you would run the following from your console: npm install bootstrap@5.2.3 (ver num may need to be updated from time to time)
