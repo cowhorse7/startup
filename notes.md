@@ -73,3 +73,5 @@ Return statements with arrow function:
     // RETURNS: 3
 
 debounce functions are good for efficiency. They will restrict execution of a function to once per /time-slot/. The time will reset every time the debounce function is called
+
+&nbsp = non-breaking space character. will add a space when typed
