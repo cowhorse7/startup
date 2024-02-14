@@ -40,3 +40,36 @@ CSS flex display (display: flex) is useful when you want your content to react t
 
 Bootstrap CSS package is good to use for when JS is needed. Bootstrap is very common to use
 to  include Bootstrap in your application using NPM you would run the following from your console: npm install bootstrap@5.2.3 (ver num may need to be updated from time to time)
+
+JavaScript = most commonly used language
+use keyword "let" or "const" (depending if you want it constant or able to change) to define variables (not "var")
+objects can change type based on what you assign to them, they may not necessarily remain the way they were defined (will adapt)
+JS supports the regular mathmatical operators (triple === for equality(or !== for not))
+    at least for number vars. For strings, only + and ===
+    double == is technically usable but can give unexpected results with the complex defining rules.
+Can define a string with ', ", or `
+
+Unicode is a thing that helps you support other languages
+
+functions begin with keyword "function"
+and, yes, you can declare functions from inside other functions
+These two functions are the same:
+    // standard function syntax
+    a.sort(function (v1, v2) {
+        return v1 - v2;
+    });
+    // arrow function syntax
+    a.sort((v1, v2) => v1 - v2);
+Return statements with arrow function:
+    () => 3;
+    // RETURNS: 3
+    () => {
+        3;
+    };
+    // RETURNS: undefined
+    () => {
+        return 3;
+    };
+    // RETURNS: 3
+
+debounce functions are good for efficiency. They will restrict execution of a function to once per /time-slot/. The time will reset every time the debounce function is called
