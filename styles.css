@@ -42,3 +42,11 @@ footer {
     background-color: green;
   color: rgb(200, 230, 50);
 }
+table {  
+    margin: auto;
+    font-size: 1.5em;
+      border: solid thin black;
+  }
+  td {
+    border: solid thin black;
+  }
