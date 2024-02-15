@@ -29,3 +29,11 @@ Are you struggling to decide what you want your wedding bouquet to look like, bu
 + WebSocket - Live chat with users on friends list
 + React - Application ported to use the React web framework.
  
+## CSS Deliverable
+For this deliverable, I styled the application into an approximation of its final appearance.
++ Header, footer, and main content body
++ Navigation elements - I changed the appearance and orientation of my navbar
++ Responsive to window resizing - My app appears adequate with differing window sizes.
++ Application elements - colored and positioned elements neatly
++ Application text content - Consistent fonts
++ Application images - still working on adding the stickers, but added a couple of other images that are nice.
