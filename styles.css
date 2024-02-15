@@ -1,12 +1,40 @@
 header{
     background-color: green;
 }
+h1 {
+  font-family: "brush script mt";
+  font-size: 8em;
+  padding: 1rem;
+  font-weight: normal;
+}
+h2 {
+    font-family: "lucida handwriting";
+    font-weight: normal;
+    position: relative;
+    left: 300px;
+    border-bottom: solid thin white;
+}
+li{
+  list-style-type: none;
+  font-size: 1.5em;
+  padding: 1rem;
+}
+menu{
+  display: flex;
+}
+a {
+  color: rgb(30, 40, 20);
+  text-decoration: none;
+}
 body {
     background-color: rgb(115, 245, 154);
-
+}
+main {
+  margin: 2rem;
 }
 footer {
+  text-align: center;
+  padding: 1rem;
     background-color: green;
-    display: flex;
-    text-justify: center;
+  color: rgb(200, 230, 50);
 }
