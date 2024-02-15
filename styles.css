@@ -46,7 +46,21 @@ table {
     margin: auto;
     font-size: 1.5em;
       border: solid thin black;
-  }
-  td {
+}
+td {
     border: solid thin black;
-  }
+}
+div {
+    background-color: white;
+    border: solid thin green;
+    margin: auto;
+    width: 700px;
+}
+.box {
+    height: 100px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.board {
+    height: 400px;
+}
