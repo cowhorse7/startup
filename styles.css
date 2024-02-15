@@ -1,5 +1,18 @@
 header{
     background-color: green;
+    flex: .1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+}
+nav {
+  background-color: green;
+  flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
 }
 h1 {
   font-family: "brush script mt";
@@ -31,15 +44,23 @@ a {
   text-decoration: none;
 }
 body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
     background-color: rgb(115, 245, 154);
 }
 main {
   margin: 2rem;
 }
 footer {
+  flex: .2;
+  display: flex;
+  border-top: solid thin white;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
-    background-color: green;
+  background-color: green;
   color: rgb(200, 230, 50);
 }
 table {  
