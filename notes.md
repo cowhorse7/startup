@@ -75,3 +75,45 @@ Return statements with arrow function:
 debounce functions are good for efficiency. They will restrict execution of a function to once per /time-slot/. The time will reset every time the debounce function is called
 
 &nbsp = non-breaking space character. will add a space when typed
+
+JavaScript Object Notation (JSON): can be converted to and from Javascript
+A JS obj reps a collection of name-value pairs referred to as properties
+JS Objects (not to be confused with your avg obj) can be created with the new operator/keyword
+Object-literal syntax allows you to provide initial composition of obj
+creating a class signifies intent to create a reusable component
+Classes have an explicit constructor
+properties and functions of classes can be made private with a '#' in front
+    ->use the # every time you reference it, as well
+extends can create an inheritance.
+    class employee extends person {}
+a parent's functions can be accessed using keyword 'super'
+Regular Expressions are built in to JS
+use a reg exp to find text in a string
+create a reg exp using the class constructor or a reg exp literal
+turn the last parameter into a rest parameter by leading it w ... this allows you to call the funtion with any number of parameters, which are all automatically combined into an array
+handle exceptions with try/catch and throw syntax
+remember you can also have a 'finally' block after a 'try' block that will always execute no matter whether an exception was thrown
+restrict exceptions to exceptional situations, not things that are going to be happening often. Just debug your code, dude
+fallbacks help handle exceptions and provide something to return even when an exception is thrown
+destructuring != destructing
+destructuring lets you pull items out of something like an array or object
+^tricky syntax
+Scope is the variables that are visible in the context of execution.
+    Global- visible to all code
+    Module- visible to all code running in a module
+    Function- visible withing a function
+    Block- visible within a block of code delimited by curly braces
+Once again, don't use term var unless in a very particular situation... it ignores block scope
+three diff contexts 'this' can refer to:
+    Global- referenced from outside a function, context for runtime enviro
+    Function- from inside a function, refers to obj that owns the function
+    Object- from inside an object, refers to same obj
+JS modules allow for partitioning and sharing of code
+JS has module support for ES6. 
+Node.js modules=CommonJS modules JS modules=ES modules
+modules create a file-based scope for their code, so you must export objects from one file and import them into another
+cannot access JS contained in a module that your nonmodule JS is executing in
+from html. specify you are using an ES module
+    <script type="module"></script>
+
+DOM= Document Object Model, an object representation of HTML elements
