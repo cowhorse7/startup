@@ -117,3 +117,10 @@ from html. specify you are using an ES module
     <script type="module"></script>
 
 DOM= Document Object Model, an object representation of HTML elements
+
+JS executes as a single thread-- ie there is only ever one piece of code executing at any given time
+However, you can run the same program in parallel- asynchronously- with a Promise, which can be in any of three states: Pending, Fulfilled, and Rejected
+Create a promise by calling the Promise object constructor and passing in an executor function
+You can set the state to Fulfilled or Rejected with Resolve or Reject commands/methods
+once a Promise has been resolved, handle it like unto an exception. Catch if the promise was rejected, Then is called if Promise==Fulfilled, and Finally is always called once the processing is completed. 
+Observers are similar and also allow asynchronous processing
