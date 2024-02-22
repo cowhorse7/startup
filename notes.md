@@ -124,3 +124,8 @@ Create a promise by calling the Promise object constructor and passing in an exe
 You can set the state to Fulfilled or Rejected with Resolve or Reject commands/methods
 once a Promise has been resolved, handle it like unto an exception. Catch if the promise was rejected, Then is called if Promise==Fulfilled, and Finally is always called once the processing is completed. 
 Observers are similar and also allow asynchronous processing
+
+await keyword wraps execution of Promise. Blocks it until the state moves to Fulfilled (or throws an exception if the state moves to Rejected)
+can only call Await at the top level of JavaScript, or in a function defined with keyword Async. This keyword transforms the functions so it returns a Promise to resolve whatever value was previously returned. ie, it turns any function into an asynchronous function
+Using await when calling a function defined with async will return the result of the promise defined (or implicitly defined) within the function. Not using 'await' will return the whole promise object
+a promise can be equated to a then/catch chain or try/catch block with an await in there
