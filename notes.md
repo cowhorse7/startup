@@ -129,3 +129,11 @@ await keyword wraps execution of Promise. Blocks it until the state moves to Ful
 can only call Await at the top level of JavaScript, or in a function defined with keyword Async. This keyword transforms the functions so it returns a Promise to resolve whatever value was previously returned. ie, it turns any function into an asynchronous function
 Using await when calling a function defined with async will return the result of the promise defined (or implicitly defined) within the function. Not using 'await' will return the whole promise object
 a promise can be equated to a then/catch chain or try/catch block with an await in there
+
+When debugging:
+write a block of code, then step through and debug the block (before writing the next one)
+console.log() functions output the state of the code as it executes. This can be an easy way to help debug
+You can also debug in the browser console
+Source tab (in browser debugger) shows the code. Can click to highlight a line which will then be a breakpoint. Just refresh the page and program will stop there.
+
+keyword 'defer' will delay code until the end
