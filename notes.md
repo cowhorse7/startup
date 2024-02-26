@@ -9,6 +9,23 @@ ssh -i "C:\Users\becca\OneDrive\Documents\School\CS260\---" ubuntu@260dreams.cli
 Note also that I am unsure whether my computer actually has ubuntu at all. Not sure if I want to subscribe, either. 
 -The class instruction mentioned nothing about it, which could either mean I don't need it, or they expect everyone to already have it.
 
+Commands for the windows terminal:
+pwd = Present working Directory
+cd = change directory
+ls = List files
+-la = (will list in long format)
+mkdir/rmdir=make/remove directory
+rm/mv/cp=remove/move/copy files
+find = find files
+cat = output file contents
+wc=wordcount
+kill = kill running process
+sudo = execute command as admin
+ssh = secure shell
+ctrl+c = kill current command
+>/>> = redirect output to file. single overwrites, double appends
+| = pipes output from left command into right command
+
 http = hypertext transport protocol (non-secure)
 https = secure version (should always be used/supported nowadays (in anything you build))
 when using non-secure connections, anyone with access to the network traffic can capture all data sent in either direction (bad)
@@ -117,6 +134,7 @@ from html. specify you are using an ES module
     <script type="module"></script>
 
 DOM= Document Object Model, an object representation of HTML elements
+property textContent sets the child text for an element
 
 JS executes as a single thread-- ie there is only ever one piece of code executing at any given time
 However, you can run the same program in parallel- asynchronously- with a Promise, which can be in any of three states: Pending, Fulfilled, and Rejected
@@ -137,3 +155,6 @@ You can also debug in the browser console
 Source tab (in browser debugger) shows the code. Can click to highlight a line which will then be a breakpoint. Just refresh the page and program will stop there.
 
 keyword 'defer' will delay code until the end
+chmod +x deploy.sh <-command to make a script executable
+DNS = Domain Name System
+You cannot use 'undefined' in JSON. Or single quotes.
