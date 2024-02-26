@@ -27,7 +27,7 @@ ctrl+c = kill current command
 | = pipes output from left command into right command
 
 http = hypertext transport protocol (non-secure)
-https = secure version (should always be used/supported nowadays (in anything you build))
+https = secure version (should always be used/supported nowadays (in anything you build)) (web certificate necessary) (port 443)
 when using non-secure connections, anyone with access to the network traffic can capture all data sent in either direction (bad)
 SOA = start of authority - a record that provides contact info about the owner of the domain name
 the handshake exchanges web certificate which identifies domain name of server creating the secure connection.
@@ -93,11 +93,13 @@ debounce functions are good for efficiency. They will restrict execution of a fu
 
 &nbsp = non-breaking space character. will add a space when typed
 
-JavaScript Object Notation (JSON): can be converted to and from Javascript
+JavaScript Object Notation (JSON): can be converted to and from Javascript (but does not require JS to be processed)
+ex: let o = {number=1,value="carrot",features=['orange','root']};
 A JS obj reps a collection of name-value pairs referred to as properties
 JS Objects (not to be confused with your avg obj) can be created with the new operator/keyword
 Object-literal syntax allows you to provide initial composition of obj
 creating a class signifies intent to create a reusable component
+can add new properties to a JS obj dynamically, or after defining it
 Classes have an explicit constructor
 properties and functions of classes can be made private with a '#' in front
     ->use the # every time you reference it, as well
@@ -134,7 +136,9 @@ from html. specify you are using an ES module
     <script type="module"></script>
 
 DOM= Document Object Model, an object representation of HTML elements
+^ a tree-structured rep of the html
 property textContent sets the child text for an element
+calling .textContent allows you to change the text in an element
 
 JS executes as a single thread-- ie there is only ever one piece of code executing at any given time
 However, you can run the same program in parallel- asynchronously- with a Promise, which can be in any of three states: Pending, Fulfilled, and Rejected
@@ -156,5 +160,8 @@ Source tab (in browser debugger) shows the code. Can click to highlight a line w
 
 keyword 'defer' will delay code until the end
 chmod +x deploy.sh <-command to make a script executable
+chmod changes a file's mode bits to control the access rights to a file
 DNS = Domain Name System
 You cannot use 'undefined' in JSON. Or single quotes.
+TLD = Top level domain (the final section of a domain name, such as click, com, org, etc)
+a root domain is a website name, like cs260.click, and a subdomain is a sub of that, like simon.cs260.click
