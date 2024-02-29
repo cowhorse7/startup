@@ -37,3 +37,9 @@ For this deliverable, I styled the application into an approximation of its fina
 + Application elements - colored and positioned elements neatly
 + Application text content - Consistent fonts
 + Application images - still working on adding the stickers, but added a couple of other images that are nice.
+
+## JavaScript Deliverable
++ login - upon pressing "login", redirected to "Create" page
++ database - 
++ websocket - 
++ interaction logic - 
