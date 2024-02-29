@@ -25,8 +25,8 @@ Are you struggling to decide what you want your wedding bouquet to look like, bu
   + retrieving choices
   + displaying flowers
   + recalling saved arrangements
-+ DB/Login - Store users and friends in database. Register and login users. Credentials securely stored in database.
-+ WebSocket - Live chat with users on friends list
++ DB/Login - Store users in database. Register and login users. Credentials securely stored in database.
++ WebSocket - live updates on list of shared community arrangements
 + React - Application ported to use the React web framework.
  
 ## CSS Deliverable
@@ -39,7 +39,7 @@ For this deliverable, I styled the application into an approximation of its fina
 + Application images - still working on adding the stickers, but added a couple of other images that are nice.
 
 ## JavaScript Deliverable
-+ login - upon pressing "login", redirected to "Create" page
++ login - upon pressing "login", redirected to "Create" page; saved username in local storage
 + database - 
 + websocket - 
 + interaction logic - 
