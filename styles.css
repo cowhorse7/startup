@@ -23,8 +23,7 @@ h1 {
 h2 {
     font-family: "lucida handwriting";
     font-weight: normal;
-    position: relative;
-    left: 300px;
+    position: right;
     border-bottom: solid thin white;
 }
 img {
