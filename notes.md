@@ -165,3 +165,28 @@ DNS = Domain Name System
 You cannot use 'undefined' in JSON. Or single quotes.
 TLD = Top level domain (the final section of a domain name, such as click, com, org, etc)
 a root domain is a website name, like cs260.click, and a subdomain is a sub of that, like simon.cs260.click
+
+the internet is an interconnected web of wires (and wireless wires) throughout the world
+When one device wants to talk to another, it needs an IP address. Users often prefer symbolic names over the number address, called a domain name. You can convert a domain name  by looking it up in the DNS and using the command dig
+devices and websites both have IP addresses
+traceroute command will allow you to see route of requests from requester to destination
+traceroute may not always show the exact same route
+ISP = Internet Service Provider
+TCP = Transmission Control Protocol
+IP= Internet Protocol
+TCP/IP Layers: Application (functionality), Transport (moving), Internet (establishing connections), and Link (physical connections)
+
+a web server is a computing device that is hosting a seb service and knows how to accept incoming connections
+in early days, this was a massive, complex, expensive software program
+now, most programming languages include libraries that provide the ability to make connections and serve http
+it is common to find multiple services running on the same device. every network device allows for seperate network connections through unique port numbers. Each service starts on a diff port
+This can be confusing, so we may introduce a service gateway that begins on the https port 443 and can redirect us to other services.
+*Caddy is our current gateway
+web services providing a single function are microservices. These can be managed independently from a larger system. They can also make stateless copies based on user demand.
+In serverless functionality, the server is removed from the architecture; you write a function speaking HTTP that is loaded through the gateway mapping a request to that function.
+
+the owner of a root domain can create any number of subdomains off the root domain. each sub may use a diff ip addy.
+use command whois to find information on a particular domain name
+address (A) and Canonical name (CNAME) records map domain names to ip addresses. A's straight map it together; cname maps one domain name to another domain name, which acts as an alias (such as mapping byu.com to byu.edu)
+Authoritative Name Servers assiciate domain names with ip addys
+Time to Live (TIL) is a setting for domain records. 
