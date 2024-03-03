@@ -190,3 +190,42 @@ use command whois to find information on a particular domain name
 address (A) and Canonical name (CNAME) records map domain names to ip addresses. A's straight map it together; cname maps one domain name to another domain name, which acts as an alias (such as mapping byu.com to byu.edu)
 Authoritative Name Servers assiciate domain names with ip addys
 Time to Live (TIL) is a setting for domain records. 
+
+the html/css/js/image files that run on the browser are the Frontend of your application
+Currently, my app is loaded from my web server and runs on the user's browser
+frontend uses https protocol to request the app files
+can make requests to anywhere from frontend js (often with a fetch function)
+*to build a full stack web app, create your own web service
+the functionality provided by your web service reps the Backend of your app
+endpoints are the functions provided by a web service. aka APIs
+access endpoints from frontend js with the fetch function
+backend provides static files making up the frontend as well as service endpoints called by the frontend
+Fetch function can be used to request data either from the backend web service (provided files) or from other web services
+
+URL = uniform resource locator
+^location of a web resource
+there are many parts to a url, and most of them are optional
+<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>
+this is the format of a url. the only required parts are the scheme and domain name
+scheme: protocol required to ask for the resource. (usually https)
+domain name: name that owns the resource rep'ed by the url
+Port: specifies numbered network port used to connect to domain server (default 443 for https)
+Path: path to resource on domain
+Parameters: rep a list of key-value pairs, usually provides additional qualifiers on resource rep'ed by the path. sometimes called query str
+Anchor: reps a sub-location in the resource. sometimes called fragment or hash ID
+URN = Uniform Resource Name
+^ a unique resource name not specifying location info
+URI = Uniform Resource Identifier
+^ a gen identifier that could refer either to a url or urn (usually a url, which you should generally be using anyway)
+
+When connecting a device to the internet, you need both an IP address and a numbered Port.
+port numbers allow a single device to support multiple protocols (ie http, https, ssh, etc) and diff types of services (search, authenticate,...)
+HTTPS port = 443
+HTTP port = 80
+SSH port = 22
+IANA = internet governing body
+ports 0-1023 are standard protocols and should be avoided if not being used the standard way
+ports 1024-49151 rep ports assigned to requesting entities and are commonly used by internal device services
+ports 49152-65535 are used to create dynamic connections to a device
+when (my) caddy receives a port 80 request, it auto-redirects to port 443
+on your web server, you can have as many services running as desired, but each must use a diff port to communicate
