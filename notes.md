@@ -282,3 +282,40 @@ NPM has a massive repo of packages. You can search them on the NPM website. But 
 *You can also uninstall packages
 when you install package dependencies, npm will create an additional file and directory to accompany it in your project directory. Put these in your .gitignore file rather than including them in your source control
 when you clone repos, the first thing you should do is command "npm install" to get all the packages referenced.
+
+Node is good for little projects and quick content. however, to be a production-lvl/ready app, you need a framework with greater functionalaity more easily implemented
+Node package Express provides support for: routing requests for service endpoints, manipulating http requests with JSON body content, generating http responses, and using middleware to add functioality
+*created by TJ Holowaychuk and maintained by open.js foundation
+Express revolves around creating and using http routing and middleware. Create an express app by using npm to install the express package and then calling the express constructor
+define routes in express that call functions based on an http path in order to implement an http endpoint. express regognize http verbs,such as get
+ ex:
+    const express = require('express');
+    const app = express();
+    app.get('/store/provo', (req, res, next) => { res.send({name: 'provo'});});
+get takes two parameters: a url path matching pattern and a callback function (invoked when pattern matches). the callback function, in turn, takes 3 parameters: request, response, and next (routing function to be called if this one wants another function--optional)
+the Express app compares the routing function patterns in the order they are added to the app object.
+Express supports path parameters by prefixing parameter names with a colon. It then creates a map of path params and populates it with the matching values found in the url path. You can then ref the params using the req.params object
+ex: replace res.send({name: 'provo'}); from prev example with:
+    res.send({name: req.params.storeName}); (rather than hardcoding to 'provo')
+you can see the results created with 'curl' in the command line
+examples of route functions:
+    // Wildcard - matches /store/x and /star/y
+    app.put('/st*/:storeName', (req, res) => res.send({update: req.params.storeName}));
+    // Pure regular expression
+    app.delete(/\/store\/(.+)/, (req, res) => res.send({delete: req.params[0]}));
+standard mediator/middleware design has two pieces: a mediator and middleware
+middleware reps componentized pieces of functionality
+mediator loads middleware components 
+Express is the mediator, middleware functions are the middleware
+Express comes with standard middleware functions that provide functionality like routing, authentication, CORS, sessions, cookies, logging... some are provided by default and some must be installed with npm. You can also write your own.
+a middleware function looks like a routing function (because routing functs are middleware-- however, they are only called if associated patterns match. most middleware functs are always called for every http request)
+    function middlewareName(req, res, next)
+You should usually be calling the next function at the end of your processing (last line of your function) so that the next middleware funct can execute
+ex: writing a middleware function:
+    app.use((req, res, next) => {
+    console.log(req.originalUrl);
+    next();
+    });
+ex: using builtin middleware:
+    app.use(express.static('public'));
+middleware can be added to handle errors, just add another param at the front of the param list for the 'err'
