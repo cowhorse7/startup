@@ -24,27 +24,29 @@
         <main>
             <h2 id="usertitle">Guest's Arrangement</h2>
             <div class="box">
-                <img src="pinkFlower.png" onclick="duplicate()" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
-                <img src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
+                <img class="flowers" src="pinkFlower.png" alt="basic pink">
 
             </div>
-            <button style="position: relative; left:100px" type="submit" onclick="shareButton()">share</button>
-            <button style="position: relative; left:665px" type="submit" onclick="clearButton()">clear</button>            
-            <button style="position: relative; left:665px" type="submit" onclick="saveButton()">save</button>            
-            <div class="board" id="stickerboard">
-            </div>
+            <div id="buttons">
+            <button type="submit" onclick="shareButton()">share</button>
+            <button type="submit" onclick="clearButton()">clear</button>            
+            <button type="submit" onclick="saveButton()">save</button>
+            </div>            
+            <canvas class="board" id="stickerboard">
+            </canvas>
         </main>
         <footer>
             <hr />

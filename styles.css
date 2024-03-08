@@ -70,16 +70,19 @@ table {
 td {
     border: solid thin black;
 }
-div {
+div, canvas {
     background-color: white;
     border: solid thin green;
     margin: auto;
     width: 700px;
+    display:block;
 }
+
 .box {
     height: 105px;
     overflow-x: scroll;
     overflow-y: hidden;
+    white-space: nowrap;
 }
 div.box img {
   padding: 6px;
@@ -88,6 +91,12 @@ div.box img {
 .board {
     height: 500px;
 }
-.board img {
-  position: absolute;
+/* .board img {
+  position: absolute; */
+/* } */
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(115, 245, 154);
+  border: 0px;
 }

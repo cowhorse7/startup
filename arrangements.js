@@ -15,3 +15,6 @@ function onDOMContentLoad(event) {
 document.addEventListener("DOMContentLoaded", (event) => { onDOMContentLoad(event); });
 //display local storage of images
 //display websocket??? images under "community" label
+
+//ref simon "websocket" to get new rows going in the table
+//--can also get new rows to delete old(est) rows
