@@ -10,5 +10,5 @@ function onCreateBtnClick() {
 function login() {
     const name = document.querySelector("#name").value;
     localStorage.setItem("username", name);
-    routeToCreatepPage();
+    routeToCreatePage();
 }

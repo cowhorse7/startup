@@ -88,3 +88,6 @@ div.box img {
 .board {
     height: 500px;
 }
+.board img {
+  position: absolute;
+}
