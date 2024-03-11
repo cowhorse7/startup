@@ -321,3 +321,4 @@ ex: using builtin middleware:
 middleware can be added to handle errors, just add another param at the front of the param list for the 'err'
 
 Localstorage can only save strings, so to save something to local storage, it must be a string. JSON.stringify is handy for this. To pull it out of local storage, we need it out of the string, so JSON.parse is good for that.
+Use 'let' variable when you know that your variable may change over time (as opposed to 'const', which you generally will use)

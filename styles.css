@@ -5,6 +5,7 @@ header{
     flex-direction: row;
     align-items: center;
     text-align: left;
+    padding-right: 30px;
 }
 nav {
   background-color: green;
@@ -17,7 +18,8 @@ nav {
 h1 {
   font-family: "brush script mt";
   font-size: 8em;
-  padding: 1rem;
+  margin: auto;
+  margin-left: 50px;
   font-weight: normal;
 }
 h2 {
@@ -74,12 +76,12 @@ div, canvas {
     background-color: white;
     border: solid thin green;
     margin: auto;
-    width: 700px;
     display:block;
 }
 
 .box {
     height: 105px;
+    width: 700px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
@@ -88,9 +90,6 @@ div.box img {
   padding: 6px;
   display: inline;
 }
-.board {
-    height: 500px;
-}
 /* .board img {
   position: absolute; */
 /* } */
@@ -98,5 +97,6 @@ div.box img {
   display: flex;
   justify-content: space-between;
   background-color: rgb(115, 245, 154);
+  width: 700px;
   border: 0px;
 }
