@@ -1,59 +1,56 @@
-// const stickerboard = document.getElementById("stickerboard");
-// const ctx = stickerboard.getContext("2d");
-var stickerboard, ctx;
-var dupimg = new Image();
-var isDraggable = false;
-var currentX = 0;
-var currentY = 0;
+
+// let stickerboard = document.getElementById("stickerboard");
+// let ctx = stickerboard.getContext("2d");
+// stickerboard.width = window.innerWidth - 30; //not sure what these -nums are for
+// stickerboard.height = window.innerHeight - 10;
+// let stick_width = stickerboard.width;
+// let stick_height = stickerboard.height;
+// let imgs = [];
+// let current_img_index = null;
 
 function duplicate(element) {
     //clone object onto stickerboard space, then make the clone moveable
-    dupimg = element.cloneNode(true);
-    stickerboard = document.getElementById("stickerboard");
-    ctx = stickerboard.getContext("2d");
-    currentX = stickerboard.width/2;
-    currentY = stickerboard.height/2;
-    ctx.imageSmoothingEnabled = false;
-    dupimg.onload = function() {ctx.drawImage(dupimg, 0, 0);};
-    ctx.onload = function(){ go(); };
+    const dupimg = element.cloneNode(true);
+    const stickerboard = document.getElementById("stickerboard");
+    const ctx = stickerboard.getContext("2d");
+    //imgs.push(dupimg);
+    ctx.drawImage(dupimg, 0, 0);
+    //dupimg.onload = function() {drag();};
+    
     //create object (such as an array) that can keep track of the images and their locations
     }
 
-function go() {
-    mouseEvents();
-    setInterval(function() { 
-        clearButton();
-        redraw(); 
-    }, 1000/30); //not sure what this ratio is for..?
+let ismouseinimg = function(x, y, img) {
+    let img_left = img.x;
+    let img_right = img.x + img.width;
+    let img_top = img.y;
+    let img_bottom = img.y + img.height;
+    if (x > img_left && x < img_right && y > img_top && y < img_bottom){ return true; }
 }
 
-function redraw() {
-    ctx.drawImage(dupimg, currentX-(dupimg.width/2), currentY-(dupimg.height/2));
+let mousedown = function(event) {
+    event.preventDefault();
+    let startX = parseInt(event.clientX);
+    let startY = parseInt(event.clientY);
+    let index = 0;
+    for(let img of imgs) {
+        if (ismouseinimg(startX, startY, img)) {
+            console.log("yes"); //testing fill
+            current_img_index = index;
+        }
+        else{ console.log("no");} //testing statement
+        index++;
+    }
 }
 
-function mouseEvents() {
-    stickerboard.onmousedown = function(e) {
-        var mouseX = e.pageX - this.offsetLeft;
-        var mouseY = e.pageY - this.offsetTop;
-        if (mouseX >= (currentX - dupimg.width/2) &&
-            mouseX <= (currentX + dupimg.width/2) &&
-            mouseY >= (currentY - dupimg.height/2) &&
-            mouseY <= (currentY + dupimg.height/2)) {
-            isDraggable = true;
-        }
-    };
-    stickerboard.onmousemove = function(e) {
-        if(isDraggable) {
-            currentX = e.pageX - this.offsetLeft;
-            currentY = e.pageY - this.offsetTop;
-        }
-    };
-    stickerboard.onmouseup = function(e) {
-        isDraggable = false;
-    };
-    stickerboard.onmouseout = function(e) {
-        isDraggable = false;
-    };
+stickerboard.onmousedown = mousedown;
+   
+let drag = function() {
+    ctx.clearRect(0,0,stick_width, stick_height);
+    for(let img of imgs) {
+        ctx.fillStyle = img.color;
+        ctx.fillRect(img.x, img.y, img.width, img.height);
+    }
 }
 
 function displayUsername() {
