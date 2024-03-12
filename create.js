@@ -1,12 +1,60 @@
+// const stickerboard = document.getElementById("stickerboard");
+// const ctx = stickerboard.getContext("2d");
+var stickerboard, ctx;
+var dupimg = new Image();
+var isDraggable = false;
+var currentX = 0;
+var currentY = 0;
+
 function duplicate(element) {
     //clone object onto stickerboard space, then make the clone moveable
-    const dupimg = element.cloneNode(true);
-    const stickerboard = document.getElementById("stickerboard");//.appendChild(dupimg);
-    const ctx = stickerboard.getContext("2d");
+    dupimg = element.cloneNode(true);
+    stickerboard = document.getElementById("stickerboard");
+    ctx = stickerboard.getContext("2d");
+    currentX = stickerboard.width/2;
+    currentY = stickerboard.height/2;
     ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(dupimg, 0, 0);
+    dupimg.onload = function() {ctx.drawImage(dupimg, 0, 0);};
+    ctx.onload = function(){ go(); };
     //create object (such as an array) that can keep track of the images and their locations
     }
+
+function go() {
+    mouseEvents();
+    setInterval(function() { 
+        clearButton();
+        redraw(); 
+    }, 1000/30); //not sure what this ratio is for..?
+}
+
+function redraw() {
+    ctx.drawImage(dupimg, currentX-(dupimg.width/2), currentY-(dupimg.height/2));
+}
+
+function mouseEvents() {
+    stickerboard.onmousedown = function(e) {
+        var mouseX = e.pageX - this.offsetLeft;
+        var mouseY = e.pageY - this.offsetTop;
+        if (mouseX >= (currentX - dupimg.width/2) &&
+            mouseX <= (currentX + dupimg.width/2) &&
+            mouseY >= (currentY - dupimg.height/2) &&
+            mouseY <= (currentY + dupimg.height/2)) {
+            isDraggable = true;
+        }
+    };
+    stickerboard.onmousemove = function(e) {
+        if(isDraggable) {
+            currentX = e.pageX - this.offsetLeft;
+            currentY = e.pageY - this.offsetTop;
+        }
+    };
+    stickerboard.onmouseup = function(e) {
+        isDraggable = false;
+    };
+    stickerboard.onmouseout = function(e) {
+        isDraggable = false;
+    };
+}
 
 function displayUsername() {
     const displayEl = document.querySelector("#usertitle");
