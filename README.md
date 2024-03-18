@@ -40,6 +40,6 @@ For this deliverable, I styled the application into an approximation of its fina
 
 ## JavaScript Deliverable
 + login - upon pressing "login", redirected to "Create" page; saved username in local storage
-+ database - display canvas images to Arrangements page as saved on Create page
++ database - display canvas images to Arrangements page as saved on Create page. will add ability to load user-saved images on other devices
 + websocket - display of community arrangements will be replaced with websocket messages
 + interaction logic - ability to interact with Create page: flower box, buttons, and stickerboard

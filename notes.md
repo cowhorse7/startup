@@ -324,3 +324,35 @@ Localstorage can only save strings, so to save something to local storage, it mu
 Use 'let' variable when you know that your variable may change over time (as opposed to 'const', which you generally will use)
 Database stores data onto a web server (into the cloud,more or less), whereas local storage puts it on the computer, so what is stored in a database can be accessed from other computers
 
+once, javascript could make requests from one domain while displaying a website from another domain. these are cross-origin requests
+to fight this, the SOP (Same Origin Policy) was created. it only allows JS to request from a domain that it is currently in. Cross Origin Resource Sharing (CORS) allows the client to specify the origin and let the server respond with what’s allowed. server may say all origins allowed, such as if it’s a gen serv. provider, or only a specific origin is allowed, like if they’re a bank. If server does not specify, browser assumes same origin
+With CORS, it is the browser protecting the user from accessing an authentication service from the wrong origin. CORS is meant to alert the user something is wrong, but hackers can still ignore an Access-Control-Allow-Origin header 
+When you make requests from your own web services, you won’t violate SOP (obviously)
+Trying to (fetch) request from another website may cause CORS to fail your request (403 code), if it doesn’t have that access control header
+*so test websites you want to use before using them. Make sure they respond with ‘*’ or they can’t be used.
+
+web services provide interactive functionality, such as: authenticate users and track their session as well as connect to others and such. provide, store, analyze data. an easy-to-use application will be more successful.
+creating a sequence diagram may help you see how objects interact (or are meant to interact)
+web services are usually provided over http. remember http verbs such as get/post/put/delete/etc, which mirror web service actions
+service endpoints are often called Application Programming Interface (API), which can refer either to a singular endpoint or a collective.
+a web service is usually divided into multiple service endpoints. each one provides a single functional purpose. 
+remember the grammar of an endpoint: since it's http, act on a resource with an http verb. Also make sure the referenced resource is clearly readable in whatever url you provide. Also make it discovereable, for instance, if you have many endpoints, you can make them point to each other. also make them compatible-- so that you can add new functionality without breaking existing clients. note also this will usually mean the ignoring of your endpoint clients toward anything misunderstood
+by adding representations, you add functionality
+keep your endpoints simple and focused on the primary resources of your application, which resources focus on the resources of your system rather than the data structures and devices used to host them. Endpoints should only do one thing
+create, use, and maintain documentation of your service endpoints. consider making use of such tools as Open API Specification which take care of that for you and build for you a sandbox of experimentation. Create a draft of your initial endpoint documentation
+
+RPC = Remote Procedure Calls
+RPC expose service endpoints as simple function calls.
+when used over http, usually leverages the http verb "POST" 
+maps directly to function calls that exist within the server.
+*exposes inner workings of a service
+REST = Representational State Transfer
+REST attempts to take advantage of foundational principles of http
+created by a contributor to http
+rest verbs always act upon a resource
+GraphQL focuses on manipulation of data (rather than the function call of RPC or the resource of REST).
+a query that specifies desired data and how to join/filter it
+Instead of calling for each detail one by one, GraphQL can request all desired information in the form of one big JSON response
+helps remove logic for parsing endpoints and mapping requests to resources because there is only one endpoint(the query)
+*client now has power to consume resources of server--no clear boundaries
+common GraphQL packages provide support for schema implementations with database adaptors for query support.
