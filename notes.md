@@ -322,3 +322,5 @@ middleware can be added to handle errors, just add another param at the front of
 
 Localstorage can only save strings, so to save something to local storage, it must be a string. JSON.stringify is handy for this. To pull it out of local storage, we need it out of the string, so JSON.parse is good for that.
 Use 'let' variable when you know that your variable may change over time (as opposed to 'const', which you generally will use)
+Database stores data onto a web server (into the cloud,more or less), whereas local storage puts it on the computer, so what is stored in a database can be accessed from other computers
+

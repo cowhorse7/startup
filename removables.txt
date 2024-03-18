@@ -1,0 +1,33 @@
+
+
+
+
+
+   
+let drag = function() {
+    ctx.clearRect(0,0,stick_width, stick_height);
+    for(let img of imgs) {
+        ctx.fillStyle = img.color;
+        ctx.fillRect(img.x, img.y, img.width, img.height);
+    }
+}
+
+localStorage.setItem('canvas', JSON.stringify(canvas));
+const loaded = JSON.parse(localStorage.getItem('canvas'));
+
+canvas: [];
+canvas.push({
+    src: 'image.png',
+    xcoord: 0,
+    ycoord: 0
+});
+
+function load(loadedArray){
+    for (const item of loadedArray){
+        const img = new Image();
+        img.src = item.src;
+        img.onload = () => {
+            ctx.drawImage(img, item.xcoord, item.ycoord);
+        };
+    }
+}
