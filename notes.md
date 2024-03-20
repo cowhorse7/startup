@@ -356,3 +356,16 @@ Instead of calling for each detail one by one, GraphQL can request all desired i
 helps remove logic for parsing endpoints and mapping requests to resources because there is only one endpoint(the query)
 *client now has power to consume resources of server--no clear boundaries
 common GraphQL packages provide support for schema implementations with database adaptors for query support.
+
+--
+
+web applications often need to store application/user data, such as profile, structure, gameplay info, usage, billing, etc, persistently.
+SQL databases are the historically used things, but now we tend to use NoSQL solutions, such as Redis, MongoDB, Neo4J, and ElasticSearch, which specialize in certain aspects of a program
+*we will be using MongoDB, which uses JSON objects as its core model
+consider a collection as a large array of javascript objects
+Mongo has no strict schema requirements
+to add a new field to a Mongo collection, insert the field into the document(s) as desired. If it doesn't match, then the document won't match the query criteria when called upon.
+install Mongo, make a client object (with username/password/hostname), then insert/query for documents. When inserting a document, if the database collection of intended destination does not exist, it will be created.
+to query for documents, use the 'find' function on the collection obj. Note that find is asynchronous so we use 'await' (afterwards) to ensure the promise(s) have resolved before moving on. If you do not supply parameters to 'find', you will receive all docs in collection
+with a managed data service, your service will grow or shrink to support the desired capacity-- in short, take care of itself.
+*we will use data service Atlas with MongoDB
