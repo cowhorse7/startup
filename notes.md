@@ -359,6 +359,34 @@ common GraphQL packages provide support for schema implementations with database
 
 --
 
+it is critical to separate where you develop your app from where you make the release publicly available (and there are usually more than these 2 environments). Developers don't usually have access to production environments, and there are usually many tests and staging that occur before an application is deployed
+you should never consider the production environment as a place to develop or experiment
+automated deployment processes (as we will be using) are reproducible. You won't accidentally delete or misconfigure something in your files.
+our deployment scripts will change with the new technologies that we employ
+-k parameter provides the credential file necessary to access your production environment (pem key)
+-h parameter = domain name of production environment
+-s parameter reps name of app you are deploying (ie simon, startup)
+first part of deployment script parses command line parameters
+next, the script copies all applicable source files into distribution directory (dist) (it will clear the target directory to make the new copies via secure shell(ssh))
+the dist will then be copied to the production enviro via secure copy program (scp)
+then use ssh again to install node packages and restart service daemon
+lastly, delete dist
+
+web apps often need to upload files from frontend app in the browser to the backend service, which can be accomplished by using HTML input element of type file on frontend and npm package Multer in backend
+Multer is not the only package to use, but it is a common one. It reads the file from the http request and enforces size limits, as well as stores the file in the "uploads" directory. It also handles requests for static files, errors, and provides a get endpoint to serve up a file from the uploads directory
+It is not a very good idea to store your files on your server becasue 1. there isn't much space, 2. servers are transient, 3.server storage is not usually backed up, and 4. multiple application servers might mess you up. Use a dedicated storage service instead.
+
+web apps usually need to store files associated with the app or its users, such as images, user uploads, documents, movies, and such. files usually have an id, metadata, and the bytes of the file. It tends to be overkill to store these in a database service.
+It's usually a bad idea to store these on the server because, again, 1. you have limited space, 2. servers are transient/temporary, and 3. backup copies are not provided here
+use a storage service designed for production storage
+one of the most popular of these services is AWS S3, which has these perks:
+    unlimited capacity      only pay for what you use       global access
+    keeps multiple copies       can version the files       performant
+    supports metadata tags      can make files publicly available from S3
+    can keep files private/accessible only to application
+if using S3, learn to use AWS SDK
+steps: create S3 bucket to store data, get credentials so app can access bucket, use credentials in app, use SDK to edit files from bucket (*don't include the credentials in your code)
+
 web applications often need to store application/user data, such as profile, structure, gameplay info, usage, billing, etc, persistently.
 SQL databases are the historically used things, but now we tend to use NoSQL solutions, such as Redis, MongoDB, Neo4J, and ElasticSearch, which specialize in certain aspects of a program
 *we will be using MongoDB, which uses JSON objects as its core model
@@ -369,3 +397,12 @@ install Mongo, make a client object (with username/password/hostname), then inse
 to query for documents, use the 'find' function on the collection obj. Note that find is asynchronous so we use 'await' (afterwards) to ensure the promise(s) have resolved before moving on. If you do not supply parameters to 'find', you will receive all docs in collection
 with a managed data service, your service will grow or shrink to support the desired capacity-- in short, take care of itself.
 *we will use data service Atlas with MongoDB
+
+to remember a user's data, we need a way to uniquely associate said data with a particular credential. ie, authenticate a user (such as with an email and password). You can remember this authentication by storing an authentication token on the user's device, such as a cookie.
+you must also determine what a given user is authorized to do on your app. You can store authorization power with user information. A complex app will usually have much authorization representation that controls a user's access to every part of it.
+authentication and authorization can be complex and are prime targets for hackers.
+many service/package developers have created solutions to help you
+authorization services use standard protocols like OAuth, AML and OIDC.
+SSO = Single Sign On, a concept allowing a user to use the same credentials for multiple web apps (such as, using your google credentials on other sites)
+Federated login allows a user to log in once and immediately reuses your auth token to log in to multiple sites (such as logging in to gmail and you can get into drive and docs without logging in for each one)
+
