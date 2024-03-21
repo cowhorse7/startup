@@ -25,29 +25,24 @@
         <main>
             <h2 id="usertitle">Guest's Arrangement</h2>
             <div class="box" width="700">
-                <img class="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <img class="flowers" src="pinkFlower.png" alt="basic pink">
-                <input type="button" onclick="convertCanvasToImage()" value="Generate Image">
+                <img id="basicPink" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
+                <img id="flowers" draggable="true" ondragstart="drag(event)" src="pinkFlower.png" alt="basic pink">
             </div>
             <div id="buttons">
             <button type="submit" onclick="shareButton()">share</button>
             <button type="submit" onclick="clearButton()">clear</button>            
             <button type="submit" onclick="saveButton()">save</button>
             </div>            
-            <canvas class="board" id="stickerboard" ondrop = "drop(event)" ondragover= "allowDrop(event)" width="700" height="500" >
-            </canvas>
+            <canvas id="stickerboard"  ondrop="drop(event)" ondragover="allowDrop(event)" width="700" height="500">
+                </canvas>
+                <img id="ye" width="700" height="500">
         </main>
         <footer>
             <span class = "text-reset">Rebecca Case &nbsp;</span>
