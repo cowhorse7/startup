@@ -18,3 +18,4 @@ document.addEventListener("DOMContentLoaded", (event) => { onDOMContentLoad(even
 
 //ref simon "websocket" to get new rows going in the table
 //--can also get new rows to delete old(est) rows
+

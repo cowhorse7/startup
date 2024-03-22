@@ -128,43 +128,18 @@ function saveButton() {
     }
 }
 
-// function shareButton() {
-//     //if there is a username in ls
-//     const username = localStorage.getItem("username");
-//     if (username != null && username.length != 0) {
-//         //save the stickerboard
-//         const cv = document.getElementById("stickerboard").getContext("2d");
-//         cv.save();
-//         //send image to.. websocket??? along with username
-//     //potentially with timestamp as well
-//     }
-// }
-
-// function clearButton() {
-//     //empty the stickerboard of children/images
-//     const cv = document.getElementById("stickerboard");
-//     const cvcx = cv.getContext("2d");
-//     cvcx.clearRect(0,0, cv.width, cv.height);
-// }
-
 function shareButton() {
     //if there is a username in ls
     const username = localStorage.getItem("username");
     if (username != null && username.length != 0) {
         //save the stickerboard
-         
-     var canvas = document.getElementById('stickerboard');
-const cv =canvas.getContext("2d");
+        var canvas = document.getElementById('stickerboard');
+        const cv =canvas.getContext("2d");
         cv.save();
-     var image_src = canvas.toDataURL("image/png");
-      console.log(image_src);
-     document.getElementById('ye').src = image_src;
+        var image_src = canvas.toDataURL("image/png");
     }
 }
+
 function clearButton() {
-    //empty the stickerboard of children/images
-  var canvas = document.getElementById("stickerboard");
-  var ctx = canvas.getContext("2d");
-  ctx.clearRect(0,0, canvas.width, canvas.height);
   imagesOnCanvas= [];
 }
