@@ -357,7 +357,26 @@ helps remove logic for parsing endpoints and mapping requests to resources becau
 *client now has power to consume resources of server--no clear boundaries
 common GraphQL packages provide support for schema implementations with database adaptors for query support.
 
---
+when you run a program from the console, it will terminate when you close the console (or when the computer restarts).
+to keep programs running after shutdown, register is as a 'daemon'--something always working in the background
+Process Manager 2 = PM2, an easy way to start/stop your service
+*PM2 is already included on my service as a part of AWS
+*you can see it in action by SSH-ing into the server and running 'pm2 ls'
+if you want to set up another subdomain:
+    add rule to caddyfile to tell how to direct requests for said domain
+        ssh into server -> copy section for startup and alter it to rep the sub and give it a different port num
+        restart caddy to load new settings
+    create directory and add files for web service
+        copy startup directory to a dir. that reps the purpose of your service (use ctrl+c to stop service)
+        start up web service listening on [port 5000]: 'node index.js 5000'
+        now you can access service through browser, or curl: 'curl [url]'
+    configure pm2 to host service
+        when you close your ssh session, all processes you began will be stopped (including your web service). Hence the need for something always on in bg (daemon).
+        cd into your service directory, run 'pm2 start index.js -n [subdomain] -- 5000' and 'pm2 save'
+
+remember the frontend is the part everyone sees and works with, tha backend is the code
+you can press f5 to run debug (stop debugging by shift+f5)
+consider nodeman package which will restart node every time you save a change you've made. if you install it your debugger will run with that instead of node.js
 
 it is critical to separate where you develop your app from where you make the release publicly available (and there are usually more than these 2 environments). Developers don't usually have access to production environments, and there are usually many tests and staging that occur before an application is deployed
 you should never consider the production environment as a place to develop or experiment
