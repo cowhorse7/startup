@@ -7,6 +7,11 @@ function displayUsername() {
     }
 }
 
+function displayImage() {
+    document.getElementById("hey").src = localStorage.getItem("arrangement");
+}//likely issue: local storage cannot save images. how to fix?
+//although, I still have test code over in create that asks for local storage and works...
+
 function onDOMContentLoad(event) {
     console.log(event);
     displayUsername();

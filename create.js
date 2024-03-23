@@ -122,9 +122,12 @@ function saveButton() {
     const username = localStorage.getItem("username");
     if (username != null && username.length != 0) {
         //save the stickerboard in local storage--this save method pushes onto a stack [of canvases]
-        const cv = document.getElementById("stickerboard").getContext("2d");
+        var canvas = document.getElementById('stickerboard');
+        const cv =canvas.getContext("2d");
         cv.save();
-    //potentially timestamp it, too (save the time of creation with the image)
+        var image_src = canvas.toDataURL("image/png");
+        localStorage.setItem("arrangement", image_src);
+        document.getElementById("hey").src = localStorage.getItem("arrangement");
     }
 }
 
@@ -137,6 +140,8 @@ function shareButton() {
         const cv =canvas.getContext("2d");
         cv.save();
         var image_src = canvas.toDataURL("image/png");
+        localStorage.setItem("arrangement", image_src);
+        document.getElementById("hey").src = localStorage.getItem("arrangement");
     }
 }
 

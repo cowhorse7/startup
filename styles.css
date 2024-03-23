@@ -27,6 +27,8 @@ h2 {
     font-weight: normal;
     position: right;
     border-bottom: solid thin white;
+    margin: 0;
+    margin-bottom: .5em;
 }
 h1 img {
     position: relative;
@@ -85,14 +87,13 @@ div, canvas {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-top: .5em;
 }
 div.box img {
   padding: 6px;
   display: inline;
 }
-/* .board img {
-  position: absolute; */
-/* } */
+
 #buttons {
   display: flex;
   justify-content: space-between;
