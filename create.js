@@ -127,7 +127,11 @@ function saveButton() {
         cv.save();
         var image_src = canvas.toDataURL("image/png");
         localStorage.setItem("arrangement", image_src);
-        document.getElementById("hey").src = localStorage.getItem("arrangement");
+        // var image_src = JSON.stringify(imagesOnCanvas);
+        // localStorage.setItem("arrangement", image_src);
+        // let text = localStorage.getItem("arrangement");
+        // let arr = JSON.parse(text);
+        // document.getElementById("hey").src = arr;
     }
 }
 
@@ -141,7 +145,6 @@ function shareButton() {
         cv.save();
         var image_src = canvas.toDataURL("image/png");
         localStorage.setItem("arrangement", image_src);
-        document.getElementById("hey").src = localStorage.getItem("arrangement");
     }
 }
 
