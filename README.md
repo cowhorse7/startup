@@ -43,3 +43,11 @@ For this deliverable, I styled the application into an approximation of its fina
 + database - display canvas images to Arrangements page as saved on Create page. Intend to add ability to load user-saved images on other devices (and to present more than one saved image at once)
 + websocket - display of community arrangements will be replaced with websocket messages
 + interaction logic - ability to interact with Create page: flower box, buttons, and stickerboard
+
+## Service Deliverable
+backend endpoints
++ Node.js/Express Service - 
++ Static Middleware for frontend - 
++ calls to third party endpoints - 
++ backend service endpoints - 
++ frontend calls service endpoints - 
