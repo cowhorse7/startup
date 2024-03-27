@@ -101,3 +101,10 @@ div.box img {
   width: 700px;
   border: 0px;
 }
+
+#quotebox {
+  margin: auto;
+  background-color: rgb(115, 245, 154);
+  border: 0px;
+  text-align: center;
+}

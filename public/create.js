@@ -113,6 +113,7 @@ function displayUsername() {
 function onDOMContentLoad(event) {
     console.log(event);
     displayUsername();
+    displayQuote();
 }
 
 document.addEventListener("DOMContentLoaded", (event) => { onDOMContentLoad(event); });
@@ -151,3 +152,18 @@ function shareButton() {
 function clearButton() {
   imagesOnCanvas= [];
 }
+
+function displayQuote(data) {
+    fetch('https://api.quotable.io/random')
+      .then((response) => response.json())
+      .then((data) => {
+        const containerEl = document.querySelector('#quotebox');
+  
+        const quoteEl = document.createElement('p');
+        quoteEl.classList.add('quote');
+  
+        quoteEl.textContent = data.content;
+  
+        containerEl.appendChild(quoteEl);
+      });
+  }
