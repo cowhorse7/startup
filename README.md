@@ -46,7 +46,7 @@ For this deliverable, I styled the application into an approximation of its fina
 
 ## Service Deliverable
 backend endpoints
-+ Node.js/Express Service - 
++ Node.js/Express Service - done
 + Static Middleware for frontend - 
 + calls to third party endpoints - 
 + backend service endpoints - 
