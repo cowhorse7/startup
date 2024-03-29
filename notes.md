@@ -425,3 +425,46 @@ authorization services use standard protocols like OAuth, AML and OIDC.
 SSO = Single Sign On, a concept allowing a user to use the same credentials for multiple web apps (such as, using your google credentials on other sites)
 Federated login allows a user to log in once and immediately reuses your auth token to log in to multiple sites (such as logging in to gmail and you can get into drive and docs without logging in for each one)
 
+---
+
+web frameworks provide tools for completing common tasks to make your application building easier (such as modularizing code, simplifying reactivity, etc)
+some frameworks go beyond the standard html/javas/css and create new hyprid formats that combine such things into one file (such as React JSX, VUE SFC, and Svelte.)
+Vue combines all three and is repped by a template element
+Svelte also combines all three but requires a transpiler to generate code
+React combines html and javascript (not css)
+an angular component defines what js, css, html are combined, which keeps a strong seperation of files that are usually grouped together
+
+React provides a powerful web programming framework. its name comes from its focus on making reactive web page components.
+*was created by Jordan Walke for Facebook
+*abstracts html into a js variant "JSX", which can be converted back into a valid html and js using Babel, a preprocessor.
+the React.createElement() function will generate DOM elements and monitor them for changes (which React will then, um, react to)
+
+React components allow you to modularize your functionality, which allows underlying code to directly represent user-interactive components.
+*also enable code reuse
+*generate user interface (with "render" function)
+    JSX
+        <div>
+            Component: <Demo />
+        </div>
+    React Component
+        function Demo() {
+            const who = "world";
+            return <b>Hello {who}</b>;
+        }
+    Resulting HTML
+        <div>Component: <b>Hello world</b></div>
+React components allow you to pass info to them as element properties and will receive these as a constructor and display them when it renders.
+    JSX
+        <div>
+            Component: <Demo who="Walke"/>
+        </div>
+    React Component
+        function Demo(props) {
+            return <b>Hello {props.who}</b>;
+        }
+    Resulting HTML
+        <div>Component: <b>Hello Walke</b></div>
+Components can have an internal state, created by calling React.useState, which is a hook function returning a var containing current state and a function to update that state
+note you can use JSX even w/o a function-- a simple var repping jsx will work anyplace you would otherwise provide a component
+React currently supports class style components as well as function style ones (diff:properties are loaded on constructor and state is set)
+A component's properties and state are used by React framework to determine interface reactivity. Reactivity controls how a component reacts to user actions.
