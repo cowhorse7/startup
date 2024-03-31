@@ -122,19 +122,43 @@ function saveButton() {
     //if there is a username in ls,
     const username = localStorage.getItem("username");
     if (username != null && username.length != 0) {
-        //save the stickerboard in local storage--this save method pushes onto a stack [of canvases]
-        var canvas = document.getElementById('stickerboard');
-        const cv =canvas.getContext("2d");
-        cv.save();
-        var image_src = canvas.toDataURL("image/png");
-        localStorage.setItem("arrangement", image_src);
-        // var image_src = JSON.stringify(imagesOnCanvas);
-        // localStorage.setItem("arrangement", image_src);
-        // let text = localStorage.getItem("arrangement");
-        // let arr = JSON.parse(text);
-        // document.getElementById("hey").src = arr;
+        saveImages();
     }
 }
+
+async saveImages() {
+    const date = new Date().toLocaleDateString();
+    const newImage = {image: image_src, date: date};
+    const canvas = document.getElementById('stickerboard');
+    var image_src = canvas.toDataURL("image/png");
+        try {
+            const response = await fetch('/api/images', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(newImage),
+            });
+            const images = await response.json();
+            localStorage.setItem("images", JSON.stringify(images));
+        } catch {
+            this.updateLocalImages(newImage);
+        }
+}
+
+updateLocalImages(newImage) {
+    let images = [];
+    const imageText = localStorage.getItem('images');
+    if (imageText) {
+      images = JSON.parse(imageText);
+    }
+
+    images.push(newImage);
+
+    if (images.length > 5) {
+      images.length = 5;
+    }
+
+    localStorage.setItem('images', JSON.stringify(images));
+  }
 
 function shareButton() {
     //if there is a username in ls

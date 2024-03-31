@@ -7,10 +7,51 @@ function displayUsername() {
     }
 }
 
-//display local storage of images
-function displayImage() {
-    document.getElementById("hey").src = localStorage.getItem("arrangement");
-}
+//user-saved image display. may need to be edited since copied from text-based app
+async function loadImages() {
+    let scores = [];
+    try {
+      // Get the latest images from the service
+      const response = await fetch('/api/images');
+      scores = await response.json();
+  
+      // Save the images in case we go offline in the future
+      localStorage.setItem('images', JSON.stringify(images));
+    } catch {
+      // If there was an error then just use the last saved images
+      const imageText = localStorage.getItem('images');
+      if (imageText) {
+        images = JSON.parse(imageText);
+      }
+    }
+  
+    displayImages(images);
+  }
+  
+  function displayImages(images) {
+    const tableBodyEl = document.querySelector('#images');
+  
+    if (images.length) {
+      // Update the DOM with the images
+      for (const [i, images] of images.entries()) {
+        const dateTdEl = document.createElement('td');
+        const imageTdEl = document.createElement('td');
+  
+        dateTdEl.textContent = image.date;
+        imageTdEl.textContent = image.image;
+  
+        const rowEl = document.createElement('tr');
+        rowEl.appendChild(dateTdEl);
+        rowEl.appendChild(imageTdEl);
+  
+        tableBodyEl.appendChild(rowEl);
+      }
+    } else {
+      tableBodyEl.innerHTML = '<tr><td colSpan=2>No saved arrangements</td></tr>';
+    }
+  }
+  
+  loadImages();
 
 //display websocket??? images under "community" label
 //--can also get new rows to delete old(est) rows... somehow
