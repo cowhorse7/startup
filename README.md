@@ -49,5 +49,5 @@ backend endpoints
 + Node.js/Express Service - done
 + Static Middleware for frontend - done
 + calls to third party endpoints - added fetch function for quote on create page
-+ backend service endpoints - (middleware in index.js)
-+ frontend calls service endpoints - (calling that middleware as necessary)
++ backend service endpoints - enables saving images for local user
++ frontend calls service endpoints - fetch functions to display saved images
