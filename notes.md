@@ -468,3 +468,11 @@ Components can have an internal state, created by calling React.useState, which 
 note you can use JSX even w/o a function-- a simple var repping jsx will work anyplace you would otherwise provide a component
 React currently supports class style components as well as function style ones (diff:properties are loaded on constructor and state is set)
 A component's properties and state are used by React framework to determine interface reactivity. Reactivity controls how a component reacts to user actions.
+
+web programming is complex. We made a series of tools to help with that.
+some common pieces in a web app tool chain:
+    code repository, linter(warns of non-idiomatic code usage), prettier(formats to standard), transpiler(compiles into different formats), polyfill(generates code for supporting older browsers), bundler(packages code into bundles), minifier(removes whitespace), testing(automated tests), deployment
+
+using a Command Line Interface (CLI) saves you the trouble of configuring toolchain parameters and gets you a quick start
+if using jsx code in your file, you should probably use .jsx as your file extension (as opposed to .js)
+'npm run dev' bundles code to a temporary directory, and 'npm run build' will deploy it to a production environment (also creating a new 'dist' directory for the server)
