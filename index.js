@@ -10,18 +10,11 @@ app.use(express.json());
 // Serve up the front-end static content hosting
 app.use(express.static('startup\\public'));
 
-// Return the application's default page if the path is unknown
-app.use((_req, res) => {
-    res.sendFile('index.html', {root: 'startup\\public'});
-});
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-});
-
 // Router for service endpoints
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+let images = [];
 // get images
 apiRouter.get('/images', (req, res) =>{
     res.send(images);
@@ -29,16 +22,22 @@ apiRouter.get('/images', (req, res) =>{
 
 //submit image
 apiRouter.post('/images', (req,res) => {
-    images = updateImages(req.body, images);
+    updateImages(req.body);
     res.send(images);
 });
 
 //updateImages
-let images = [];
-function updateImages(newImage, images) {
+function updateImages(newImage) {
     images.push(newImage);
     if (images.length > 5) {
         images.length = 5;
     }
-    return images;
 }
+
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+    res.sendFile('index.html', {root: 'startup\\public'});
+});
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+});

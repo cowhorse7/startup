@@ -8,12 +8,13 @@ function displayUsername() {
 }
 
 //user-saved image display. may need to be edited since copied from text-based app
+
 async function loadImages() {
-    let scores = [];
+  let images = [];
     try {
       // Get the latest images from the service
       const response = await fetch('/api/images');
-      scores = await response.json();
+      images = await response.json();
   
       // Save the images in case we go offline in the future
       localStorage.setItem('images', JSON.stringify(images));
@@ -28,31 +29,30 @@ async function loadImages() {
     displayImages(images);
   }
   
-  function displayImages(images) {
-    const tableBodyEl = document.querySelector('#images');
-  
-    if (images.length) {
+function displayImages(images) {
+  const tableBodyEl = document.querySelector('#images');
+  if (images) {
       // Update the DOM with the images
-      for (const [i, images] of images.entries()) {
-        const dateTdEl = document.createElement('td');
-        const imageTdEl = document.createElement('td');
+    for (const i of images) {
+      const dateTdEl = document.createElement('td');
+      const imageTdEl = document.createElement('td');
   
-        dateTdEl.textContent = image.date;
-        imageTdEl.textContent = image.image;
+      dateTdEl.textContent = i.date;
+      const img = document.createElement('img');
+      img.src=i.image;
+      imageTdEl.appendChild(img);
   
-        const rowEl = document.createElement('tr');
-        rowEl.appendChild(dateTdEl);
-        rowEl.appendChild(imageTdEl);
+      const rowEl = document.createElement('tr');
+      rowEl.appendChild(dateTdEl);
+      rowEl.appendChild(imageTdEl);
   
-        tableBodyEl.appendChild(rowEl);
-      }
-    } else {
-      tableBodyEl.innerHTML = '<tr><td colSpan=2>No saved arrangements</td></tr>';
+      tableBodyEl.appendChild(rowEl);
     }
+  } else {
+    tableBodyEl.innerHTML = '<tr><td colSpan=1>No saved arrangements</td></tr>';
   }
+}
   
-  loadImages();
-
 //display websocket??? images under "community" label
 //--can also get new rows to delete old(est) rows... somehow
 setInterval(() => {
@@ -65,7 +65,7 @@ setInterval(() => {
 function onDOMContentLoad(event) {
     console.log(event);
     displayUsername();
-    displayImage();
+    loadImages();
 }
 
 document.addEventListener("DOMContentLoaded", (event) => { onDOMContentLoad(event); });

@@ -1,27 +1,24 @@
 var imagesOnCanvas = [];
 
-    function renderScene() {
-        requestAnimationFrame(renderScene);
+function renderScene() {
+    requestAnimationFrame(renderScene);
 
-        var canvas = document.getElementById('stickerboard');
-        var ctx = canvas.getContext('2d');
-        ctx.clearRect(0,0,
-            canvas.width,
-            canvas.height
-        );
+    var canvas = document.getElementById('stickerboard');
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0,
+        canvas.width,
+        canvas.height
+    );
 
-
-        for(var x = 0,len = imagesOnCanvas.length; x < len; x++) {
-            var obj = imagesOnCanvas[x];
-            obj.context.drawImage(obj.image,obj.x,obj.y);
-
-        }
+    for(var x = 0,len = imagesOnCanvas.length; x < len; x++) {
+        var obj = imagesOnCanvas[x];
+        obj.context.drawImage(obj.image,obj.x,obj.y);
     }
+}
+requestAnimationFrame(renderScene);
 
-        requestAnimationFrame(renderScene);
-
-        window.addEventListener("load",function(){
-            var canvas = document.getElementById('stickerboard');
+window.addEventListener("load",function(){
+    var canvas = document.getElementById('stickerboard');
     canvas.onmousedown = function(e) {
         var downX = e.offsetX,downY = e.offsetY;
 
@@ -31,57 +28,47 @@ var imagesOnCanvas = [];
             if(!isPointInRange(downX,downY,obj)) {
                 continue;
             }
-
             startMove(obj,downX,downY);
             break;
         }
-
     } 
-        },false);
+},false);
 
-    function startMove(obj,downX,downY) {
-        var canvas = document.getElementById('stickerboard');
-
-        var origX = obj.x, origY = obj.y;
-        canvas.onmousemove = function(e) {
-            var moveX = e.offsetX, moveY = e.offsetY;
-            var diffX = moveX-downX, diffY = moveY-downY;
-
-
-            obj.x = origX+diffX;
-            obj.y = origY+diffY;
-        }
-
-        canvas.onmouseup = function() {
-            // stop moving
-            canvas.onmousemove = function(){};
-        }
+function startMove(obj,downX,downY) {
+    var canvas = document.getElementById('stickerboard');
+    var origX = obj.x, origY = obj.y;
+    canvas.onmousemove = function(e) {
+        var moveX = e.offsetX, moveY = e.offsetY;
+        var diffX = moveX-downX, diffY = moveY-downY;
+        obj.x = origX+diffX;
+        obj.y = origY+diffY;
     }
+    canvas.onmouseup = function() {
+        // stop moving
+        canvas.onmousemove = function(){};
+    }
+}
 
-    function isPointInRange(x,y,obj) {
-        return !(x < obj.x ||
+function isPointInRange(x,y,obj) {
+    return !(x < obj.x ||
             x > obj.x + obj.width ||
             y < obj.y ||
             y > obj.y + obj.height);
-    }
+}
 
+function allowDrop(e) {
+    e.preventDefault();
+}
 
-function allowDrop(e)
-        {
-            e.preventDefault();
-        }
-
-        function drag(e)
-        {
+function drag(e) {
             //store the position of the mouse relativly to the image position
             e.dataTransfer.setData("mouse_position_x",e.clientX - e.target.offsetLeft );
             e.dataTransfer.setData("mouse_position_y",e.clientY - e.target.offsetTop  );
 
             e.dataTransfer.setData("image_id",e.target.id);
-        }
+}
 
-        function drop(e)
-        {
+function drop(e) {
             e.preventDefault();
             var image = document.getElementById( e.dataTransfer.getData("image_id") );
 
@@ -100,7 +87,7 @@ function allowDrop(e)
               height: image.offsetHeight
             });
 
-        }
+}
 
 function displayUsername() {
     const displayEl = document.querySelector("#usertitle");
@@ -126,11 +113,11 @@ function saveButton() {
     }
 }
 
-async saveImages() {
+async function saveImages() {
     const date = new Date().toLocaleDateString();
-    const newImage = {image: image_src, date: date};
     const canvas = document.getElementById('stickerboard');
-    var image_src = canvas.toDataURL("image/png");
+    const image_src = canvas.toDataURL("image/png");
+    const newImage = {image: image_src, date: date};
         try {
             const response = await fetch('/api/images', {
                 method: 'POST',
@@ -144,7 +131,7 @@ async saveImages() {
         }
 }
 
-updateLocalImages(newImage) {
+function updateLocalImages(newImage) {
     let images = [];
     const imageText = localStorage.getItem('images');
     if (imageText) {
