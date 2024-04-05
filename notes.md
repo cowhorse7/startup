@@ -476,3 +476,50 @@ some common pieces in a web app tool chain:
 using a Command Line Interface (CLI) saves you the trouble of configuring toolchain parameters and gets you a quick start
 if using jsx code in your file, you should probably use .jsx as your file extension (as opposed to .js)
 'npm run dev' bundles code to a temporary directory, and 'npm run build' will deploy it to a production environment (also creating a new 'dist' directory for the server)
+
+The React Router needs to be set up and will usually be imported in index.js (wrapping around app component). React does not have a standard router package
+you generally define your routes in the app component/top level of your app but can be done anywhere.
+Route uses "link" as the anchor tag, and uses "to" as a prop instead of "href"
+Dynamic Routing offers a way to provide routes w/o hardcoding each one (just put a : in front of the dynamic parameter)
+You'll usually want to use 'useParams()' hook when you have a dynamic route
+In the olden days, position determined importance, but now there is an algorithm in react router that will determine which route you want more based on which is most specific
+an * will match anything and is good for something like an error page. The * will always be less specific than anything else and so won't override your other routes.
+Routes can be nested for a cleaner look, just make a parent route that has the path set to the shared path for all the child components
+if you pass an element prop to a parent route, it will render that component for every child route, so you can put a shared nav or other components with ease
+The Outlet component is a placeholder of sorts and will render your page's current content, which helps with your sharing of code
+you can also share layouts by wrapping child components when a parent route only defines an element and no path (this can be useful if your routes don't have similar paths but you want the same layout on both)
+Outlet comps can also take a context prop which will work like React context
+You may also use multiple route components at the same time (as two seperate, or as nested)
+    Seperate Routes might be used if you want two different sections of content that both depend on the url of the app, through an 'aside'
+    Nested Routes are common if you have lots of routes and so you move similar ones into their own files (create a new comp to call them from the [function] you store them in. don't forget to use *)
+     <Routes>
+     <Route path="/books/*" element={<BookRoutes />} />
+     </Routes>
+    export function BookRoutes() {
+  return (
+    <Routes>
+      <Route element={<BookLayout />}>
+        <Route index element={<BookList />} />
+        <Route path=":id" element={<Book />} />
+        <Route path="new" element={<NewBook />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+Note you can use a JS object instead of JSX (this involves useRoutes())
+in link navigation, any route that starts with a '/' is an absolute route
+besides 'to', there are three other keywords (props) used in links.
+    Replace-- a boolean that can command a replacement of the current page in browser history
+    reloadDocument--a boolean that can call for a full page refresh
+    state - allows you to pass data with your link not appearing in the url
+NavLink is a component identical to the link comp but is specifically for showing active states on links. if the 'to' property matches the current url, the link is considered active
+the 'end' property of a navlink can be used to specify if you don't want parent route links to also count as active
+Navigate - a simple comp that, when rendered, will automatically redirect the user to the 'to' property
+    <Navigate to="/"/>
+it also shares the other props of the link comp
+useNavigate() takes no params and returns a navigate function, which will need to be fed parameters for 'to' and 'replace' (or can simply be fed a number of pages in the history to navigate through, pos or neg depending if you want to go forward or backward)
+Search parameters are the params coming after a ? in the url
+
+React enables reactivity with three major pieces: props, state, render
+react parses jsx when it is rendered and creates a list of refs to comp state/prop objects, then monitors changes to those objects
+keyword 'export' allows [functions] to be available outside of the file in which they're defined.
+keyword 'default' tells other files using this [function] that this is the main function in the file.
