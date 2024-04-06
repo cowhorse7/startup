@@ -523,3 +523,11 @@ React enables reactivity with three major pieces: props, state, render
 react parses jsx when it is rendered and creates a list of refs to comp state/prop objects, then monitors changes to those objects
 keyword 'export' allows [functions] to be available outside of the file in which they're defined.
 keyword 'default' tells other files using this [function] that this is the main function in the file.
+To have two child components communicate w/ each other(or to collect date from multiple children), declare the shared state in the parent comp
+avoiding direct data mutation lets you keep previous versions of data intact and reuse them later (like allowing an 'undo' command)
+You need to assign proper keys when building dynamic lists. if no key is specified, React will report an error. keys need to be unique between comps and their siblings
+
+React hooks allow react function style comps to do everything a class style comp can do.
+the useEffect hook can rep lifecycle events
+>you can specify the dependencies of useEffect
+hooks can only be used in function style comps, not inside a loop or conditional statement
