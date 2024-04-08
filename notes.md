@@ -425,6 +425,13 @@ authorization services use standard protocols like OAuth, AML and OIDC.
 SSO = Single Sign On, a concept allowing a user to use the same credentials for multiple web apps (such as, using your google credentials on other sites)
 Federated login allows a user to log in once and immediately reuses your auth token to log in to multiple sites (such as logging in to gmail and you can get into drive and docs without logging in for each one)
 
+The first step towards authentication is providing a way for users to identify themselves, which usually requires two service endpoints: one to create the credential, and the second to authenticate on future visits
+web services often have a getMe endpoint holding info about the current auth user
+auth endpoint takes email/password and returns a cookie with auth token/user id (returns 409 if email already exists)
+login auth does the same but returns 401 if email does not exist
+UUID = Universally Unique Identifier, can create a random unique id
+failure to store passwords is a major security concern (esp since users often use the same password for various apps). So store them in a hash.
+
 ---
 
 web frameworks provide tools for completing common tasks to make your application building easier (such as modularizing code, simplifying reactivity, etc)
