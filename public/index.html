@@ -16,20 +16,47 @@
             <nav>
                 <menu>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="create.html">Create</a></li>
+                    <!-- <li><a href="create.html">Create</a></li>
                     <li><a href="arrangements.html"> Arrangements</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html">About</a></li> -->
                 </menu>
             </nav>
         
         <main>
             <p>Please log in to create:</p>
-            <form method="get" action="javascript:login()">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="username" />
-                <button type="submit">Login</button>
-            </form>
-        </main>
+            <!-- Displayed when needing authentication -->
+        <div id="loginControls" style="display: none">
+            <div class="input-group mb-3">
+              <span class="input-group-text">@</span>
+              <input class="form-control" type="text" id="userName" placeholder="username or email" />
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">🔒</span>
+              <input class="form-control" type="password" id="userPassword" placeholder="password" />
+            </div>
+            <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
+            <button type="button" class="btn btn-primary" onclick="newUser()">New</button>
+          </div>
+          <!-- Displayed when ready to play -->
+          <div id="createControls" style="display: none">
+            <div id="name"></div>
+            <button type="button" class="btn btn-primary" onclick="create()">Create</button>
+            <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+          </div>
+        </div>
+  
+        <!-- Error dialog -->
+        <div class="modal fade" id="msgModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark">
+              <div class="modal-body">error message here</div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
         <footer>
             <span class = "text-reset">Rebecca Case &nbsp;</span>
             <a href="https://github.com/cowhorse7/startup">GitHub</a>
