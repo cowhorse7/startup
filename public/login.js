@@ -1,7 +1,7 @@
 (async () => {
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-      document.querySelector('#name').textContent = userName;
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.querySelector('#name').textContent = username;
       setDisplay('loginControls', 'none');
       setDisplay('createControls', 'block');
     } else {
@@ -11,26 +11,26 @@
   })();
   
   async function loginUser() {
-    loginOrCreate(`/api/auth/login`);
+    loginOrNew(`/api/auth/login`);
   }
   
   async function newUser() {
-    loginOrCreate(`/api/auth/create`);
+    loginOrNew(`/api/auth/new`);
   }
   
-  async function loginOrCreate(endpoint) {
-    const userName = document.querySelector('#userName')?.value;
+  async function loginOrNew(endpoint) {
+    const username = document.querySelector('#userName')?.value;
     const password = document.querySelector('#userPassword')?.value;
     const response = await fetch(endpoint, {
       method: 'post',
-      body: JSON.stringify({ email: userName, password: password }),
+      body: JSON.stringify({ email: username, password: password }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     });
   
     if (response.ok) {
-      localStorage.setItem('userName', userName);
+      localStorage.setItem('username', username);
       window.location.href = 'create.html';
     } else {
       const body = await response.json();
@@ -46,7 +46,7 @@
   }
   
   function logout() {
-    localStorage.removeItem('userName');
+    localStorage.removeItem('username');
     fetch(`/api/auth/logout`, {
       method: 'delete',
     }).then(() => (window.location.href = '/'));

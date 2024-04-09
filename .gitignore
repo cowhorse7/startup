@@ -4,3 +4,7 @@ node_modules/
 dbkeys.sh
 cookie.txt
 dbConfig.json
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

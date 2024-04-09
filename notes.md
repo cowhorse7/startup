@@ -432,6 +432,10 @@ login auth does the same but returns 401 if email does not exist
 UUID = Universally Unique Identifier, can create a random unique id
 failure to store passwords is a major security concern (esp since users often use the same password for various apps). So store them in a hash.
 
+TDD = Test Driven Development, a proven methodology for accelerating app creation
+browsers are required to execute UI code (which is more complex), meaning you need to test apps in the browser... unfortunately there are many different browsers that behave differently, and of course the factor of random human behavior..
+faster/better solutions: automate the browser tests with a framework such as Playwright; test on different devices-- services such as BrowserStack will allow testing on many devices
+
 ---
 
 web frameworks provide tools for completing common tasks to make your application building easier (such as modularizing code, simplifying reactivity, etc)
