@@ -61,32 +61,28 @@ function allowDrop(e) {
 }
 
 function drag(e) {
-            //store the position of the mouse relativly to the image position
-            e.dataTransfer.setData("mouse_position_x",e.clientX - e.target.offsetLeft );
-            e.dataTransfer.setData("mouse_position_y",e.clientY - e.target.offsetTop  );
-
-            e.dataTransfer.setData("image_id",e.target.id);
+    //store the position of the mouse relativly to the image position
+    e.dataTransfer.setData("mouse_position_x",e.clientX - e.target.offsetLeft );
+    e.dataTransfer.setData("mouse_position_y",e.clientY - e.target.offsetTop  );
+    e.dataTransfer.setData("image_id",e.target.id);
 }
 
 function drop(e) {
-            e.preventDefault();
-            var image = document.getElementById( e.dataTransfer.getData("image_id") );
-
-            var mouse_position_x = e.dataTransfer.getData("mouse_position_x");
-            var mouse_position_y = e.dataTransfer.getData("mouse_position_y");
-
-            var canvas = document.getElementById('stickerboard');
-            var ctx = canvas.getContext('2d');
+    e.preventDefault();
+    var image = document.getElementById( e.dataTransfer.getData("image_id") );
+    var mouse_position_x = e.dataTransfer.getData("mouse_position_x");
+    var mouse_position_y = e.dataTransfer.getData("mouse_position_y");
+    var canvas = document.getElementById('stickerboard');
+    var ctx = canvas.getContext('2d');
         
-            imagesOnCanvas.push({
-              context: ctx,  
-              image: image,  
-              x:e.clientX - canvas.offsetLeft - mouse_position_x,
-              y:e.clientY - canvas.offsetTop - mouse_position_y,
-              width: image.offsetWidth,
-              height: image.offsetHeight
-            });
-
+    imagesOnCanvas.push({
+        context: ctx,  
+        image: image,  
+        x:e.clientX - canvas.offsetLeft - mouse_position_x,
+        y:e.clientY - canvas.offsetTop - mouse_position_y,
+        width: image.offsetWidth,
+        height: image.offsetHeight
+        });
 }
 
 function displayUsername() {

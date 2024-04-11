@@ -23,7 +23,7 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // CreateAuth token for a new user
-apiRouter.post('/auth/create', async (req, res) => {
+apiRouter.post('/auth/new', async (req, res) => {
     if (await DB.getUser(req.body.email)) {
       res.status(409).send({ msg: 'Existing user' });
     } else {
@@ -82,25 +82,29 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
   });
 
-let images = [];
+//let images = [];
 // get images
 secureApiRouter.get('/images', async (req, res) =>{
+  const images = await DB.getImageCollection();
     res.send(images);
 });
 
 //submit image
 secureApiRouter.post('/images', async (req,res) => {
-    updateImages(req.body);
-    res.send(images);
+  const image = {...req.body, ip: req.ip };
+  await DB.addImage(image);
+  //updateImages(image);
+  const images = await DB.getImageCollection();
+  res.send(images);
 });
 
-//updateImages
-function updateImages(newImage) {
-    images.push(newImage);
-    if (images.length > 5) {
-        images.length = 5;
-    }
-}
+// //updateImages
+// function updateImages(newImage) {
+//     images.push(newImage);
+//     if (images.length > 5) {
+//         images.length = 5;
+//     }
+// }
 
 // Default error handler
 app.use(function (err, req, res, next) {

@@ -49,7 +49,7 @@ function displayImages(images) {
       tableBodyEl.appendChild(rowEl);
     }
   } else {
-    tableBodyEl.innerHTML = '<tr><td colSpan=1>No saved arrangements</td></tr>';
+    tableBodyEl.innerHTML = '<tr><td colSpan=2>No saved arrangements</td></tr>';
   }
 }
   

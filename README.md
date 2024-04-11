@@ -51,3 +51,11 @@ backend endpoints
 + calls to third party endpoints - added fetch function for quote on create page
 + backend service endpoints - enables saving images for local user
 + frontend calls service endpoints - fetch functions to display saved images
+
+## Login Deliverable
++ MongoDB Atlas database created - done
++ Stores data in MongoDB - done
++ User registration - Creates a new account in the database.
++ existing user - recognizes and authenticates existing users, though it doesn't yet keep the saved images between sessions
++ Use MongoDB to store credentials - done
++ Restricts functionality - You cannot go anywhere until you have logged in.
