@@ -86,7 +86,7 @@ apiRouter.post('/auth/new', async (req, res) => {
 // get images
 secureApiRouter.get('/images', async (req, res) =>{
   const images = await DB.getImageCollection();
-    res.send(images);
+  res.send(images);
 });
 
 //submit image

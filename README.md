@@ -56,6 +56,6 @@ backend endpoints
 + MongoDB Atlas database created - done
 + Stores data in MongoDB - done
 + User registration - Creates a new account in the database.
-+ existing user - recognizes and authenticates existing users, though it doesn't yet keep the saved images between sessions
++ existing user - recognizes and authenticates existing users and their saved images
 + Use MongoDB to store credentials - done
 + Restricts functionality - You cannot go anywhere until you have logged in.

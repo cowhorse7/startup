@@ -44,14 +44,13 @@ function addImage(image) {
   imageCollection.insertOne(image);
 }
 
-function getImageCollection() {
-  //const query = { score: { $gt: 0, $lt: 900 } };
+async function getImageCollection() {
   const options = {
-    sort: { image: -1 },
+    sort: { date: -1 }, //may need to drop the negative depending on display order when dates come into play
     limit: 5,
   };
-  const cursor = imageCollection.find(options);
-  return cursor.toArray();
+  const cursor = imageCollection.find({}, options);
+  return await cursor.toArray();
 }
 
 module.exports = {
