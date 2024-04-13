@@ -436,6 +436,17 @@ TDD = Test Driven Development, a proven methodology for accelerating app creatio
 browsers are required to execute UI code (which is more complex), meaning you need to test apps in the browser... unfortunately there are many different browsers that behave differently, and of course the factor of random human behavior..
 faster/better solutions: automate the browser tests with a framework such as Playwright; test on different devices-- services such as BrowserStack will allow testing on many devices
 
+Using TDD for testing service endpoints is common practice. Testing is easier than writing ui tests bc it does not require a browser. 
+Jest is a handy tester.
+In a tdd, you can write your tests first and then your code based on those. When tests pass, you know your code is complete (or appropriately edited)
+
+http is based on client-server architecture. client initiates request, server responds. However, many things require communication initiated by >=2 devices
+Websocket is fully duplexed, meaning there is a peer-to-peer connection between client and server where either can efficiently send data at any time
+Websocket can also act as intermediary between a group of users who all connect to the server
+create a websocket obj by specifying the port you want to communicate on(usually the same as the browser is using... I think)
+Can debug both client (Chrome) and server (vscode)
+wss= secure websocket, ws=non-secure
+
 ---
 
 web frameworks provide tools for completing common tasks to make your application building easier (such as modularizing code, simplifying reactivity, etc)
