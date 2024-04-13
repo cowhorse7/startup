@@ -7,8 +7,7 @@ function displayUsername() {
     }
 }
 
-//user-saved image display. may need to be edited since copied from text-based app
-
+//user-saved image display
 async function loadImages() {
   let images = [];
     try {
@@ -52,15 +51,53 @@ function displayImages(images) {
     tableBodyEl.innerHTML = '<tr><td colSpan=2>No saved arrangements</td></tr>';
   }
 }
+
+function displayCommImages(images) {
+  const tableBodyEl = document.querySelector('#sharables');
+  if (commImages) {
+      // Update the DOM with the images
+    for (const i of commImages) {
+      const dateTdEl = document.createElement('td');
+      const nameTdEl = document.createElement('td');
+      const imageTdEl = document.createElement('td');
   
-//display websocket??? images under "community" label
-//--can also get new rows to delete old(est) rows... somehow
-setInterval(() => {
-    const groupWall = document.querySelector("#sharables"); //perhaps issue is appending to the front without clearing data
-    groupWall.innerHTML = 
-        '<tr><td>Etta</td><td><img id="ye" width="700" height="500"></td></tr>' +
-        groupWall.innerHTML;
-}, 5000);
+      dateTdEl.textContent = i.date;
+      nameTdEl.textContent = i.name;
+      const img = document.createElement('img');
+      img.src=i.image;
+      imageTdEl.appendChild(img);
+  
+      const rowEl = document.createElement('tr');
+      rowEl.appendChild(dateTdEl);
+      rowEl.appendChild(nameTdEl);
+      rowEl.appendChild(imageTdEl);
+  
+      tableBodyEl.appendChild(rowEl);
+    }
+  } else {
+    tableBodyEl.innerHTML = '<tr><td colSpan=3>Be First to Share an Arrangement!</td></tr>';
+  }
+}
+  
+
+function configureWebSocket() {
+  const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+  this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+  // this.socket.onmessage = async (event) => {
+  //   const msg = JSON.parse(await event.data.text());
+  //   if (msg.type === GameEndEvent) {
+  //     this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
+  //   } else if (msg.type === GameStartEvent) {
+  //     this.displayMsg('player', msg.from, `started a new game`);
+  //   }
+  // };
+}
+
+function displaySocket(dt, nm, img) {
+  const groupWall = document.querySelector('#sharables');
+  groupWall.innerHTML =
+    `<tr><td>${dt}</td><td>${nm}</td><td>${img}</td></tr>` + groupWall.innerHTML;
+}
 
 function onDOMContentLoad(event) {
     console.log(event);

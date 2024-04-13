@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const app = express();
 const DB = require('./database.js');
+const { peerProxy } = require('./peerProxy.js');
 
 const authCookieName = 'token';
 
@@ -17,6 +18,9 @@ app.use(cookieParser());
 
 // Serve up the front-end static content hosting
 app.use(express.static('public'));
+
+// Trust headers that are forwarded from the proxy so we can determine IP addresses
+app.set('trust proxy', true);
 
 // Router for service endpoints
 var apiRouter = express.Router();
@@ -69,11 +73,11 @@ apiRouter.post('/auth/new', async (req, res) => {
   });
   
   // secureApiRouter verifies credentials for endpoints
-  var secureApiRouter = express.Router();
+  const secureApiRouter = express.Router();
   apiRouter.use(secureApiRouter);
   
   secureApiRouter.use(async (req, res, next) => {
-    authToken = req.cookies[authCookieName];
+    const authToken = req.cookies[authCookieName];
     const user = await DB.getUserByToken(authToken);
     if (user) {
       next();
@@ -82,7 +86,6 @@ apiRouter.post('/auth/new', async (req, res) => {
     }
   });
 
-//let images = [];
 // get images
 secureApiRouter.get('/images', async (req, res) =>{
   const images = await DB.getImageCollection();
@@ -93,18 +96,9 @@ secureApiRouter.get('/images', async (req, res) =>{
 secureApiRouter.post('/images', async (req,res) => {
   const image = {...req.body, ip: req.ip };
   await DB.addImage(image);
-  //updateImages(image);
   const images = await DB.getImageCollection();
   res.send(images);
 });
-
-// //updateImages
-// function updateImages(newImage) {
-//     images.push(newImage);
-//     if (images.length > 5) {
-//         images.length = 5;
-//     }
-// }
 
 // Default error handler
 app.use(function (err, req, res, next) {
@@ -128,3 +122,5 @@ function setAuthCookie(res, authToken) {
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
+
+peerProxy(httpService);

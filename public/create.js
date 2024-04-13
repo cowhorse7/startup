@@ -133,27 +133,38 @@ function updateLocalImages(newImage) {
     if (imageText) {
       images = JSON.parse(imageText);
     }
-
     images.push(newImage);
-
     if (images.length > 5) {
       images.length = 5;
     }
-
     localStorage.setItem('images', JSON.stringify(images));
   }
 
 function shareButton() {
-    //if there is a username in ls
+    //if there is a username in ls,
     const username = localStorage.getItem("username");
     if (username != null && username.length != 0) {
-        //save the stickerboard
-        var canvas = document.getElementById('stickerboard');
-        const cv =canvas.getContext("2d");
-        cv.save();
-        var image_src = canvas.toDataURL("image/png");
-        localStorage.setItem("arrangement", image_src);
+        shareImages();
     }
+}
+
+async function shareImages() {
+    const username = localStorage.getItem("username");
+    const date = new Date().toLocaleDateString();
+    const canvas = document.getElementById('stickerboard');
+    const image_src = canvas.toDataURL("image/png");
+    const newImage = {image: image_src, date: date, name: username};
+        try {
+            const response = await fetch('/api/images', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(newImage),
+            });
+            const images = await response.json();
+            localStorage.setItem("images", JSON.stringify(images));
+        } catch {
+            this.updateLocalImages(newImage);
+        }
 }
 
 function clearButton() {
