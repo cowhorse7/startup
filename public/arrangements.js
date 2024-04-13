@@ -26,7 +26,13 @@ async function loadImages() {
     }
   
     displayImages(images);
-  }
+}
+
+let commImages = [];
+function shareButton(image){
+  commImages.appendChild(image);
+  displayCommImages(commImages);
+}
   
 function displayImages(images) {
   const tableBodyEl = document.querySelector('#images');
@@ -42,7 +48,7 @@ function displayImages(images) {
       imageTdEl.appendChild(img);
   
       const rowEl = document.createElement('tr');
-      rowEl.appendChild(dateTdEl);
+      rowEl.appendChild(dateTdEl + '<button type="submit" onclick="shareButton(i)">share</button>');
       rowEl.appendChild(imageTdEl);
   
       tableBodyEl.appendChild(rowEl);
@@ -52,7 +58,7 @@ function displayImages(images) {
   }
 }
 
-function displayCommImages(images) {
+function displayCommImages(commImages) {
   const tableBodyEl = document.querySelector('#sharables');
   if (commImages) {
       // Update the DOM with the images

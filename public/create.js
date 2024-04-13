@@ -140,32 +140,32 @@ function updateLocalImages(newImage) {
     localStorage.setItem('images', JSON.stringify(images));
   }
 
-function shareButton() {
-    //if there is a username in ls,
-    const username = localStorage.getItem("username");
-    if (username != null && username.length != 0) {
-        shareImages();
-    }
-}
+// function shareButton() {
+//     //if there is a username in ls,
+//     const username = localStorage.getItem("username");
+//     if (username != null && username.length != 0) {
+//         shareImages();
+//     }
+// }
 
-async function shareImages() {
-    const username = localStorage.getItem("username");
-    const date = new Date().toLocaleDateString();
-    const canvas = document.getElementById('stickerboard');
-    const image_src = canvas.toDataURL("image/png");
-    const newImage = {image: image_src, date: date, name: username};
-        try {
-            const response = await fetch('/api/images', {
-                method: 'POST',
-                headers: {'content-type': 'application/json'},
-                body: JSON.stringify(newImage),
-            });
-            const images = await response.json();
-            localStorage.setItem("images", JSON.stringify(images));
-        } catch {
-            this.updateLocalImages(newImage);
-        }
-}
+// async function shareImages() {
+//     const username = localStorage.getItem("username");
+//     const date = new Date().toLocaleDateString();
+//     const canvas = document.getElementById('stickerboard');
+//     const image_src = canvas.toDataURL("image/png");
+//     const newImage = {image: image_src, date: date, name: username};
+//         try {
+//             const response = await fetch('/api/images', {
+//                 method: 'POST',
+//                 headers: {'content-type': 'application/json'},
+//                 body: JSON.stringify(newImage),
+//             });
+//             const images = await response.json();
+//             localStorage.setItem("images", JSON.stringify(images));
+//         } catch {
+//             this.updateLocalImages(newImage);
+//         }
+// }
 
 function clearButton() {
   imagesOnCanvas= [];
