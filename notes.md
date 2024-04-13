@@ -447,7 +447,27 @@ create a websocket obj by specifying the port you want to communicate on(usually
 Can debug both client (Chrome) and server (vscode)
 wss= secure websocket, ws=non-secure
 
----
+you can ssh into your server to review the authorization log (the latest entry will be you ssh-ing in) which captures all attempts to create a session on your server
+web app security is sometimes shorthanded to AppSec and is a subset of cybersecurity
+Some common motivations behind cyber attacks:
+    disruption- extort or punish a business
+    data exfiltration- extract or expose data to embarrass or exploit
+    resource consumption- gather info, mine crypto, attack others
+Security is ALWAYS more important than 'looking good'. Always assume that any attack surface will be used against you. (One layer of security will likely not be enough)
+*Only allow access to what is absolutly necessary for users
+If you can hack your system, so can others
+
+OWASP = Open Web Application Security Project - a non-profit research entity managing the top ten list of web app security risks. you should understand and periodically review these
+    1Broken Access Control: app doesn't enforce permissions
+    2Cryptographic Failures: sensitive data is available w/o encryption/weak encryption
+    3Injection: user is allowed to supply data and inject it into an unexpected context, violating expected use
+    4Insecure Design: unique architecture not designed with security in mind
+    5Security Misconfig: attacks exploit app config
+    6Vulnerable/Outdated Comps: app not kept up to date and easier to exploit, esp w 3rd party software
+    7Identification/Authentication Failures: users can be impersonated. Passwords can be guessed, or recovered w/o verification
+    8Software/Data Integrity Failure: external software/processes/data can comprominse your app
+    9Security Logging/Monitoring Failure: attacker can delete (or distract) logs that would reveal their presence
+    10Server Side Request Forgery(SSRF): attacks cause the service to make unintended internal requests, utilizing privileges or exposing data
 
 web frameworks provide tools for completing common tasks to make your application building easier (such as modularizing code, simplifying reactivity, etc)
 some frameworks go beyond the standard html/javas/css and create new hyprid formats that combine such things into one file (such as React JSX, VUE SFC, and Svelte.)
