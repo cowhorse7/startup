@@ -59,3 +59,10 @@ backend endpoints
 + existing user - recognizes and authenticates existing users and their saved images
 + Use MongoDB to store credentials - done
 + Restricts functionality - You cannot go anywhere until you have logged in.
+
+## Websocket Deliverable
+I used websocket to make a community wall of arrangements
++ Backend listens for WebSocket connection - done
++ Frontend makes WebSocket connection - done
++ Data sent over WebSocket connection - done
++ WebSocket data displayed - community arrangements post in real time
