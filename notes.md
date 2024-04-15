@@ -582,3 +582,12 @@ You can also define the types of state/property vals in a comp.
 an Interface defines a collection of params and types that an object must contain
 typescript may also warn of use of uninitialized vars
 vite knows how to use typescript w/o additional configuration
+
+app performance basically determines user satisfaction
+to prevent losing users, your app needs to load in about 1 second. Always measure and improve.
+Latency = the delay users experience between request and response
+Monitor these things especially:
+    browser app latency
+    network latency
+    service endpoint latency
+the browser lat is affected by: user's device, amount of data needing processing, and time complexity of processing algorithm
