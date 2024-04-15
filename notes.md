@@ -573,3 +573,12 @@ React hooks allow react function style comps to do everything a class style comp
 the useEffect hook can rep lifecycle events
 >you can specify the dependencies of useEffect
 hooks can only be used in function style comps, not inside a loop or conditional statement
+
+TypeScript adds static type checking to JS, which provides type checking while you are writing the code.
+ex: function increment(value)//vs function increment(value: number){
+    return value + 1;}
+    let count='one'; //vs let count: number='one';
+You can also define the types of state/property vals in a comp.
+an Interface defines a collection of params and types that an object must contain
+typescript may also warn of use of uninitialized vars
+vite knows how to use typescript w/o additional configuration
