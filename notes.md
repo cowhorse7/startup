@@ -591,3 +591,15 @@ Monitor these things especially:
     network latency
     service endpoint latency
 the browser lat is affected by: user's device, amount of data needing processing, and time complexity of processing algorithm
+>make processing asynchronous to reduce impact on user
+Consider:
+    compression when transferring files over http
+    reduce quality of images
+    minify(remove whitespace) in JS and CSS
+network latency is increased by every request you make-- impacted by amount of data you send or recieve and the distance it must travel
+can be mitigated by hosting your app files in data centers nearer the users you are trying to serve (may be >1 place)
+service endp lat is affected by numbers of requests and time taken to process them.
+when an app makes a req to an endpoint, there tends to be a block in functionality until the endpoint returns
+the time for and amount of requests can be revealed in browser devtools
+you can also sim low bandwidth (throttling), get a performance rating (lighthouse), isolate where things are running (performance), and more
+CDN = Content Delivery Network
