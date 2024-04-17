@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(115, 245, 154);
+}
+main {
+  padding: 2rem;
+  background-color: rgb(115, 245, 154);
+  
+}
+
+div {
+  background-color: rgb(115, 245, 154);
+  border: none;
+}
+p{
+  font-size:1.2em;
+  font-family: 'Times New Roman', Times, serif;
+}

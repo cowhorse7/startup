@@ -1,0 +1,34 @@
+h2 {
+    font-family: "lucida handwriting";
+    font-weight: normal;
+    position: right;
+    border-bottom: solid thin white;
+    margin: 0;
+    margin-bottom: .5em;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(115, 245, 154);
+}
+main {
+  padding: 2rem;
+  background-color: rgb(115, 245, 154);
+  
+}
+
+table {  
+    margin: auto;
+    font-size: 1.5em;
+      border: solid thin black;
+}
+td {
+    border: solid thin black;
+}
+
+div {
+  background-color: rgb(115, 245, 154);
+  border: none;
+}

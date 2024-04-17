@@ -1,3 +1,13 @@
+menu{
+  display: flex;
+  flex-direction: row !important;
+  background-color: green;
+}
+main {
+  padding: 2rem;
+  background-color: rgb(115, 245, 154);
+  margin: none;
+}
 header{
     background-color: green;
     flex: .1;
@@ -18,6 +28,7 @@ nav {
 h1 {
   font-family: "brush script mt";
   font-size: 8em;
+  color: black;
   margin: auto;
   margin-left: 50px;
   font-weight: normal;
@@ -40,24 +51,12 @@ li{
   padding: 1rem;
   font-family:serif;
 }
-menu{
-  display: flex;
-}
+
 a {
   color: rgb(30, 40, 20)!important;
   text-decoration: none!important;
 }
-.body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(115, 245, 154);
-}
-main {
-  padding: 2rem;
-  background-color: rgb(115, 245, 154);
-  
-}
+
 footer {
   flex: .2;
   display: flex;
@@ -69,51 +68,12 @@ footer {
   background-color: green;
   color: rgb(200, 230, 50);
 }
-table {  
-    margin: auto;
-    font-size: 1.5em;
-      border: solid thin black;
-}
-td {
-    border: solid thin black;
-}
-canvas {
-    background-color: white;
-    border: solid thin green;
-    margin: auto;
-    display:block;
-}
 
 div {
   background-color: rgb(115, 245, 154);
   border: none;
 }
 
-.box {
-    background-color: white;
-    border: solid thin green;
-    margin: auto;
-    display:block;
-    height: 105px;
-    width: 700px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    margin-top: .5em;
-}
-div.box img {
-  padding: 6px;
-  display: inline;
-}
-
-#buttons {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(115, 245, 154);
-  width: 700px;
-  border: 0px;
-  margin: auto;
-}
 .btn-primary {
   --bs-btn-bg: green !important;
   --bs-btn-border-color: green !important;
@@ -123,16 +83,4 @@ div.box img {
   --bs-btn-active-border-color: rgb(7, 102, 7);
   --bs-btn-disabled-bg: green;
   --bs-btn-disabled-border-color: green;
-}
-
-#quotebox {
-  margin: auto;
-  background-color: rgb(115, 245, 154);
-  border: 0px;
-  text-align: center;
-}
-#name {
-  color: rgb(118, 190, 210);
-  font-size: 1.5em;
-  padding: 0.5em;
 }
