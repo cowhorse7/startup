@@ -7,6 +7,7 @@ import { Create } from './create/create';
 import { Arrangements } from './arrange/arrangements';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
+import sparkle from './sparkles.png';
 
 function App() {
     const [username, setUserName] = React.useState(localStorage.getItem('username') || '');
@@ -17,7 +18,7 @@ function App() {
     <BrowserRouter>
         <div>
             <header>
-            <h1>Bouquet<img height="120px" src="sparkles.png" alt="navy blue sparkles"/></h1>
+            <h1>Bouquet<img height="120px" src={sparkle} alt="navy blue sparkles"/></h1>
             </header>
                 <menu>
                     <li><NavLink to="">Login</NavLink></li>

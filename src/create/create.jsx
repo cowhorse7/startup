@@ -1,5 +1,14 @@
 import React from 'react';
 import './create.css';
+import bf1 from './blueFlower1.png';
+import bf2 from './blueFlower2.png';
+import bf3 from './blueFlower3.png';
+import of1 from './orangeFlower1.png';
+import of2 from './orangeFlower2.png';
+import pf1 from './pinkFlower.png';
+import pf2 from './pinkFlower2.png';
+import yf1 from './yellowFlower1.png';
+import yf2 from './yellowFlower2.png';
 
 export function Create() {
 let page = false;
@@ -157,15 +166,15 @@ function clearButton() {
             <h2 id="usertitle">Guest's Arrangement</h2>
             <p>Drag flowers from the box onto the stickerboard</p>
             <div className="box" width="700">
-                <img id="basicPink" draggable="true" onDragStart={(event)=> drag(event)} src="pinkFlower.png" alt="basic pink"></img>
-                <img id="thinYellow" draggable="true" onDragStart={(event)=> drag(event)} src="yellowFlower2.png" alt="thin yellow"></img>
-                <img id="elegantBlue" draggable="true" onDragStart={(event)=> drag(event)} src="blueFlower1.png" alt="elegant blue"></img>
-                <img id="thinPink" draggable="true" onDragStart={(event)=> drag(event)} src="pinkFlower2.png" alt="thin pink"></img>
-                <img id="sunYellow" draggable="true" onDragStart={(event)=> drag(event)} src="yellowFlower1.png" alt="sun yellow"></img>
-                <img id="crownBlue" draggable="true" onDragStart={(event)=> drag(event)} src="blueFlower2.png" alt="crown blue"></img>
-                <img id="swirlBlue" draggable="true" onDragStart={(event)=> drag(event)} src="blueFlower3.png" alt="swirl blue"></img>
-                <img id="crownOrange" draggable="true" onDragStart={(event)=> drag(event)} src="orangeFlower1.png" alt="crown orange"></img>
-                <img id="basicOrange" draggable="true" onDragStart={(event)=> drag(event)} src="orangeFlower2.png" alt="basic orange"></img>
+                <img id="basicPink" draggable="true" onDragStart={(event)=> drag(event)} src={pf1} alt="basic pink"></img>
+                <img id="thinYellow" draggable="true" onDragStart={(event)=> drag(event)} src={yf2} alt="thin yellow"></img>
+                <img id="elegantBlue" draggable="true" onDragStart={(event)=> drag(event)} src={bf1} alt="elegant blue"></img>
+                <img id="thinPink" draggable="true" onDragStart={(event)=> drag(event)} src={pf2} alt="thin pink"></img>
+                <img id="sunYellow" draggable="true" onDragStart={(event)=> drag(event)} src={yf1} alt="sun yellow"></img>
+                <img id="crownBlue" draggable="true" onDragStart={(event)=> drag(event)} src={bf2} alt="crown blue"></img>
+                <img id="swirlBlue" draggable="true" onDragStart={(event)=> drag(event)} src={bf3} alt="swirl blue"></img>
+                <img id="crownOrange" draggable="true" onDragStart={(event)=> drag(event)} src={of1} alt="crown orange"></img>
+                <img id="basicOrange" draggable="true" onDragStart={(event)=> drag(event)} src={of2} alt="basic orange"></img>
             </div>
             <div id="buttons">
             <button type="submit" onClick={(event)=>clearButton()}>clear</button>            
