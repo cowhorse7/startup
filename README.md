@@ -66,3 +66,5 @@ I used websocket to make a community wall of arrangements
 + Frontend makes WebSocket connection - done
 + Data sent over WebSocket connection - done
 + WebSocket data displayed - community arrangements post in real time
+
+## React Deliverable

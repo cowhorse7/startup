@@ -21,10 +21,10 @@ function App() {
             </header>
                 <menu>
                     <li><NavLink to="">Login</NavLink></li>
-                    <li><NavLink to="create">Create</NavLink></li>
-                    <li><NavLink to="arrangements"> Arrangements</NavLink></li>
-                    {/* {authState === AuthState.Authenticated && (<li><NavLink to="create">Create</NavLink></li>)}
-                    {authState === AuthState.Authenticated && (<li><NavLink to="arrangements"> Arrangements</NavLink></li>)} */}
+                    {/* <li><NavLink to="create">Create</NavLink></li>
+                    <li><NavLink to="arrangements"> Arrangements</NavLink></li> */}
+                    {authState === AuthState.Authenticated && (<li><NavLink to="create">Create</NavLink></li>)}
+                    {authState === AuthState.Authenticated && (<li><NavLink to="arrangements"> Arrangements</NavLink></li>)}
                     <li><NavLink to="about">About</NavLink></li>
                 </menu>
             <Routes>
@@ -43,12 +43,12 @@ function App() {
             exact
           />  
           <Route path='/create' element={<Create />} />
-          <Route path='/arrange' element={<Arrangements />} />
+          <Route path='/arrangements' element={<Arrangements />} />
           <Route path='/about' element={<About />} />
           <Route path='*' element={<NotFound />} />
           </Routes>
         <footer>
-            <span class = "text-reset">Rebecca Case &nbsp;</span>
+            <span className = "text-reset">Rebecca Case &nbsp;</span>
             <a href="https://github.com/cowhorse7/startup">GitHub</a>
         </footer>
         </div>
@@ -56,6 +56,6 @@ function App() {
     );
 }
 function NotFound() {
-    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+    return <main>404: Return to sender. Address unknown.</main>;
     }
 export default App;
