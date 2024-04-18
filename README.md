@@ -68,3 +68,8 @@ I used websocket to make a community wall of arrangements
 + WebSocket data displayed - community arrangements post in real time
 
 ## React Deliverable
+Converted files to React
++ Bundled and transpiled - done!
++ Components - created and functional
++ Router - functional
++ Hooks - used

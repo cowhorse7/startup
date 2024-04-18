@@ -59,7 +59,7 @@ export function Unauthenticated(props) {
           Login
         </Button>
         <Button variant='secondary' onClick={() => createNew()}>
-          Create
+          New
         </Button>
       </div>
 

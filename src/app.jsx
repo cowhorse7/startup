@@ -21,8 +21,6 @@ function App() {
             </header>
                 <menu>
                     <li><NavLink to="">Login</NavLink></li>
-                    {/* <li><NavLink to="create">Create</NavLink></li>
-                    <li><NavLink to="arrangements"> Arrangements</NavLink></li> */}
                     {authState === AuthState.Authenticated && (<li><NavLink to="create">Create</NavLink></li>)}
                     {authState === AuthState.Authenticated && (<li><NavLink to="arrangements"> Arrangements</NavLink></li>)}
                     <li><NavLink to="about">About</NavLink></li>
