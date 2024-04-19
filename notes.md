@@ -603,3 +603,51 @@ when an app makes a req to an endpoint, there tends to be a block in functionali
 the time for and amount of requests can be revealed in browser devtools
 you can also sim low bandwidth (throttling), get a performance rating (lighthouse), isolate where things are running (performance), and more
 CDN = Content Delivery Network
+
+There is always a reason, when someone is using your app. Make the desired information or experience available
+Simplicity is king.
+You should be unique in your app, but also follow standard conventions so that users don't have to think too hard.
+users should NEVER get lost in use of your app
+a convoluted app map is a strong indicator that the user exp will also be convoluted. Be concise.
+device controls should work on your app, too
+consider leaving a breadcrumb path to help users know the path they took to get where they are
+anticipate where users want to go from where they are
+font groups: serif, sans serif, monospace, handwriting
+use standard icons for their intended purposes (anti-pattern is... the opposite)
+limit line length. set max-width prop for paragraphs(something like 35em)
+em = width of character 'm'
+if a lang is read from right to left, or if some other specificity applies to a trandlation, your should make your content accessible in that orientation
+be careful with icons-- they can mean different things in different countries
+sometimes images can save you explanations. but don't waste your space on pointless images
+be mindful of decision fatigue
+as load times increase, users are more likely to bounce
+set performance goals and monitor how your app is doing
+giving the impression of progress (such as partially loading or displaying a load symbol) may mitigate user dissatisfaction
+chrome debug tools can really help diagnose performance
+provide short circuit or fallback functionality where you provide alternative functionality for when something is not working correctly
+be mindful of users with disabilities, and be aware of major legislation that may impact your app
+understand what walls are hindering user experience
+when payment is a factor, don't block users with that payment wall until necessary
+when your app fails, users will be slightly less annoyed if you can explain what went wrong, provide a possible remedy, or explain expected duration of failure
+give the amount of security necessary for your app
+
+SEO= Search Engine Optimization, modifying your app for search results. little to do with functionality and everything to do with success
+major contributors to search rank:
+    Content -- provide/host interesting, current, easily accessible content
+    Authoritative links -- get more websites/people to point to your app
+    Structure and organization--properly use html elements; include keywords in title/heading
+    Metadata--crawlers will target certain html elements and attributes to determine if your app is modern, such as the social media og(open graph) tag
+        Sitemap- a textual file distrubuted with your app describing your major content pieces (not necessary if you have a small app)
+        Robots.txt- file telling crawler what parts of your app are off limits
+            ex: # cs260.com/robots.txt
+            # Tell Google not to crawl the game play path,
+            # because it won't be useful in Google Search results.
+            User-agent: googlebot
+            Disallow: /play/
+    Performance and usability--[google] will check your quality/user experience 
+occasionally, google your app's domain to see how much is being indexed. query google with prefix "site:" followed by domain name (ex: site:simon.cs260.click)
+tools like PageSpeed Insights may help diagnose performance
+
+API = Application Programming Interface, allows an app to interact w a user
+most device apis require the user to consent to its use, such as a location service
+before instituting an api in your app, make sure it is supported by current browsers. if a specific device is not supported, you can hide this the functionality from users on that device.
